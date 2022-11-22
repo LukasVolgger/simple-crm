@@ -13,16 +13,23 @@ mat-drawer {
     border-bottom: solid 1px rgba(0, 0, 0, .12);
 }
 
-.menu-link {
+.mat-list-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
-}
-
-.mat-list-item {
     cursor: pointer;
     &:hover {
         background-color: rgba(0, 0, 0, .12);
     }
+    a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.router-outlet-container {
+    padding: 16px 64px;
 }
