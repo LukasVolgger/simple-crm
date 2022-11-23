@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 // Angular Material - END
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -56,6 +57,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressBarModule,
     // Angular Material - END
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

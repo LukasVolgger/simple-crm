@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class FirestoreService {
   user: User = new User();
   dateOfBirth: Date = new Date; // Must be initialized
+  loading: boolean = false;
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -18,12 +19,14 @@ export class FirestoreService {
    * 2. Converts the user object into JSON
    */
   addToFirestore() {
+    this.loading = true;
     this.user.dateOfBirth = this.dateOfBirth.getTime();
 
     this.firestore
       .collection('users')
       .add(this.user.userToJSON())
       .then((result) => {
+        this.loading = false;
         console.log(result);
       })
   }

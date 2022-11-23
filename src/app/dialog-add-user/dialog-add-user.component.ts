@@ -8,7 +8,7 @@ import { FirestoreService } from 'src/services/firestore.service';
 })
 export class DialogAddUserComponent implements OnInit {
 
-  constructor(public firstoreService: FirestoreService) { }
+  constructor(public firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
   }
