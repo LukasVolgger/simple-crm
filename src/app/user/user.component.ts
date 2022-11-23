@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FirestoreService } from 'src/services/firestore.service';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
@@ -8,8 +9,10 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth'];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public firestoreService: FirestoreService) {
+  }
 
   ngOnInit(): void {
   }
@@ -19,6 +22,11 @@ export class UserComponent implements OnInit {
    */
   openAddUserDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  // TODO Implement open user dialog
+  getRecord(row: any) {
+    console.log(row);
   }
 
 }

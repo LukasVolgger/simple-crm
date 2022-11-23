@@ -9,8 +9,11 @@ export class FirestoreService {
   user: User = new User();
   dateOfBirth: Date = new Date; // Must be initialized
   loading: boolean = false;
+  users: any;
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) {
+    this.getFromFirestore();
+  }
 
   /**
    * CRUD => CREATE
@@ -29,5 +32,24 @@ export class FirestoreService {
         this.loading = false;
         console.log(result);
       })
+  }
+
+  /**
+ * CRUD => READ
+ * 1. Gets the data from the users collection
+ * 2. Updates the local variable users
+ */
+  getFromFirestore() {
+    // this.loading = true; 
+    // TODO Activate loading while fetching data
+
+    this.firestore
+      .collection('users')
+      .valueChanges()
+      .subscribe((changes: any) => {
+        this.users = changes;
+        console.log(this.users);
+      });
+
   }
 }
