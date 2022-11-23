@@ -1,3 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mat-datepicker-toggle {
+    color: unset;
+}
+
 .form-row {
     display: flex;
     align-items: center;
