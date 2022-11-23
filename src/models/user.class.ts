@@ -24,4 +24,23 @@ export class User {
         this.country = obj ? obj.country : '';
     }
 
+    /**
+     * Converts the user object into a JSON
+     * @returns JSON
+     */
+    public userToJSON() {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            dateOfBirth: this.dateOfBirth,
+            phoneNumber: this.phoneNumber,
+            email: this.email,
+            website: this.website,
+            street: this.street,
+            zipCode: this.zipCode,
+            city: this.city,
+            country: this.country
+        }
+    }
+
 }

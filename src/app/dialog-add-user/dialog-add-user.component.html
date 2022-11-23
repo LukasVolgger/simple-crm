@@ -6,19 +6,19 @@
             <div class="form-row">
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
-                    <input [(ngModel)]="user.firstName" name="firstName" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.firstName" name="firstName" matInput>
                     <mat-icon matSuffix>person</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Last Name</mat-label>
-                    <input [(ngModel)]="user.lastName" name="lastName" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.lastName" name="lastName" matInput>
                     <mat-icon matSuffix>person</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Date of Birth</mat-label>
-                    <input [(ngModel)]="user.dateOfBirth" name="dateOfBirth" matInput [matDatepicker]="picker">
+                    <input [(ngModel)]="this.firstoreService.user.dateOfBirth" name="dateOfBirth" matInput [matDatepicker]="picker">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -27,19 +27,19 @@
             <div class="form-row">
                 <mat-form-field appearance="fill">
                     <mat-label>Phone number</mat-label>
-                    <input [(ngModel)]="user.phoneNumber" name="phoneNumber" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.phoneNumber" name="phoneNumber" matInput>
                     <mat-icon matSuffix>call</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input [(ngModel)]="user.email" name="email" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.email" name="email" matInput>
                     <mat-icon matSuffix>mail</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Website</mat-label>
-                    <input [(ngModel)]="user.website" name="website" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.website" name="website" matInput>
                     <mat-icon matSuffix>language</mat-icon>
                     <mat-hint>*Optional</mat-hint>
                 </mat-form-field>
@@ -50,25 +50,25 @@
             <div class="form-row">
                 <mat-form-field appearance="fill">
                     <mat-label>Street & house number</mat-label>
-                    <input [(ngModel)]="user.street" name="street" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.street" name="street" matInput>
                     <mat-icon matSuffix>signpost</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Zip Code</mat-label>
-                    <input [(ngModel)]="user.zipCode" name="zipCode" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.zipCode" name="zipCode" matInput>
                     <mat-icon matSuffix>location_on</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>City</mat-label>
-                    <input [(ngModel)]="user.city" name="city" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.city" name="city" matInput>
                     <mat-icon matSuffix>location_city</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Country</mat-label>
-                    <input [(ngModel)]="user.country" name="country" matInput>
+                    <input [(ngModel)]="this.firstoreService.user.country" name="country" matInput>
                     <mat-icon matSuffix>flag</mat-icon>
                     <!-- <mat-hint>*Required</mat-hint> -->
                 </mat-form-field>
@@ -78,5 +78,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button>Cancel</button>
-    <button (click)="saveUser()" mat-button [mat-dialog-close]="" cdkFocusInitial>Save</button>
+    <button (click)="this.firstoreService.addToFirestore()" mat-button [mat-dialog-close]="" cdkFocusInitial>Save</button>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/models/user.class';
+import { FirestoreService } from 'src/services/firestore.service';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -7,20 +7,10 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-add-user.component.scss']
 })
 export class DialogAddUserComponent implements OnInit {
-  user: User = new User();
-  dateOfBirth: Date = new Date; // Must be initialized
 
-  constructor() { }
+  constructor(public firstoreService: FirestoreService) { }
 
   ngOnInit(): void {
-  }
-
-  /**
-   * Saves the data from the form
-   */
-  saveUser() {
-    this.user.dateOfBirth = this.dateOfBirth.getTime(); // Convert Date to unix timestamp
-    console.log(this.user);
   }
 
 }
