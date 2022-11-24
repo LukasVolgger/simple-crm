@@ -45,7 +45,7 @@ export class FirestoreService {
 
     this.firestore
       .collection('users')
-      .valueChanges()
+      .valueChanges({ idField: 'userId' })
       .subscribe((changes: any) => {
         this.users = changes;
         console.log(this.users);
