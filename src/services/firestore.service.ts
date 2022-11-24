@@ -57,16 +57,32 @@ export class FirestoreService {
 
   /**
    * CRUD => UPDATE
-   * Saves the changes when a user is edited or deleted
+   * Updates the passed user in the Firestore
    */
-  updateUsers(userId: string) {
+  updateUser(userId: string) {
     this.loading = true;
-    console.log(userId);
 
     this.firestore
       .collection('users')
       .doc(userId)
       .update(this.currentUser.userToJSON())
+      .then((result) => {
+        this.loading = false;
+        console.log(result);
+      })
+  }
+
+  /**
+   * CRUD => DELETE
+   * Deletes a user from the Firestore
+   */
+  deleteUser(userId: string) {
+    this.loading = true;
+
+    this.firestore
+      .collection('users')
+      .doc(userId)
+      .delete()
       .then((result) => {
         this.loading = false;
         console.log(result);

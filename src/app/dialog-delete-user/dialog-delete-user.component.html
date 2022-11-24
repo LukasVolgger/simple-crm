@@ -4,5 +4,5 @@
 </div>
 <div mat-dialog-actions>
     <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-    <button color="warn" mat-button cdkFocusInitial>Delete</button>
+    <button (click)="this.firestoreService.deleteUser(this.userId); this.redirect()" color="warn" mat-button cdkFocusInitial>Delete</button>
 </div>
