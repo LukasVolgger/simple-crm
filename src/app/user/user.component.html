@@ -15,7 +15,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)">
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openUserDetails(row.userId)">
     </tr>
 </table>
 
