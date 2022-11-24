@@ -1,16 +1,3 @@
-.dialog-wrapper {
-    position: relative;
-}
-
-mat-progress-bar {
-    position: absolute;
-    top: -24px;
-    right: -24px;
-    left: -24px;
-    width: calc(100% + 48px);
-    height: 8px;
-}
-
 form {
     display: flex;
     flex-direction: column;

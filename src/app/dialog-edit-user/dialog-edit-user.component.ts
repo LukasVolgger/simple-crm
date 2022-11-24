@@ -16,4 +16,14 @@ export class DialogEditUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Help function to simulate a short loading time
+   */
+  editUser() {
+    this.firestoreService.updateUser(this.userId);
+    setTimeout(() => {
+      this.dialogRef.close();
+    }, 500);
+  }
+
 }

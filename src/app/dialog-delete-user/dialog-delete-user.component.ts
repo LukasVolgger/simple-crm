@@ -17,6 +17,17 @@ export class DialogDeleteUserComponent implements OnInit {
   }
 
   /**
+   * Help function to simulate a short loading time
+   */
+  deleteUser() {
+    this.firestoreService.deleteUser(this.userId);
+
+    setTimeout(() => {
+      this.redirect();
+    }, 500);
+  }
+
+  /**
    * Redirects to the user page when a user is deleted
    */
   redirect() {
