@@ -1,8 +1,14 @@
-.mat-card {
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.header-card {
     background-color: #757de8;
 }
 
-.mat-card-content {
+.header-card-content {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
