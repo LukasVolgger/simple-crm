@@ -50,6 +50,5 @@ export class FirestoreService {
         this.users = changes;
         console.log(this.users);
       });
-
   }
 }
