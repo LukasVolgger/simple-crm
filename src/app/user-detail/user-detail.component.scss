@@ -35,3 +35,15 @@
         margin: 0;
     }
 }
+
+.edit-user-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.user-information {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

@@ -12,12 +12,28 @@
     </mat-card>
 
     <mat-card>
-        <mat-card-content>
-            <h2>Address</h2>
-            <span>{{ this.currentUser.street }}</span><br>
-            <span>{{ this.currentUser.zipCode }}</span><br>
-            <span>{{ this.currentUser.city }}</span><br>
-            <span>{{ this.currentUser.country }}</span>
+        <button color="primary" mat-icon-button class="edit-user-btn">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <mat-card-content class="user-information">
+            <div>
+                <h2>Person</h2>
+                <span><strong>First Name: </strong> {{ this.currentUser.firstName }}</span><br>
+                <span><strong>Last Name: </strong>{{ this.currentUser.lastName }}</span><br>
+                <span><strong>Date of Birth: </strong>{{ this.currentUser.dateOfBirth }}</span><br>
+            </div>
+            <div>
+                <h2>Address</h2>
+                <span><strong>Street: </strong>{{ this.currentUser.street }}</span><br>
+                <span><strong>Zip Code: </strong>{{ this.currentUser.zipCode }}</span><br>
+                <span><strong>City: </strong>{{ this.currentUser.city }}</span><br>
+                <span><strong>Country: </strong>{{ this.currentUser.country }}</span>
+            </div>
+            <div>
+                <h2>Contact</h2>
+                <span><strong>Phone Number: </strong>{{ this.currentUser.phoneNumber }}</span><br>
+                <span><strong>Email: </strong>{{ this.currentUser.email }}</span><br>
+            </div>
         </mat-card-content>
     </mat-card>
 </div>
