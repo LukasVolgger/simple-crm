@@ -12,9 +12,13 @@
     </mat-card>
 
     <mat-card>
-        <button color="primary" mat-icon-button class="edit-user-btn">
-            <mat-icon>edit</mat-icon>
+        <button color="primary" mat-icon-button [matMenuTriggerFor]="menu" class="open-user-menu-btn">
+            <mat-icon>more_vert</mat-icon>
         </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+            <button (click)="editCurrentUser(this.userId)" mat-menu-item>Edit</button>
+            <button (click)="deleteCurrentUser(this.userId)" mat-menu-item class="delete-user-btn">Delete</button>
+        </mat-menu>
         <mat-card-content class="user-information">
             <div>
                 <h2>Person</h2>

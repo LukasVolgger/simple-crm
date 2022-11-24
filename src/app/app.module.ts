@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 // Angular Material - END
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -64,6 +65,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     MatProgressBarModule,
     MatTableModule,
     MatCardModule,
+    MatMenuModule,
     // Angular Material - END
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

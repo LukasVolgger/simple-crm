@@ -45,4 +45,14 @@ export class UserDetailComponent implements OnInit {
       })
   }
 
+  // TODO Implement function
+  editCurrentUser(userId: string) {
+    console.log('Edit user:', userId);
+  }
+
+  // TODO Implement function
+  deleteCurrentUser(userId: string) {
+    console.log('Delete user:', userId);
+  }
+
 }
