@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class FirestoreService {
   userToAdd: User = new User();
+  userToEdit: User = new User();
   dateOfBirth: Date = new Date; // Must be initialized
   users: any;
   currentUser: User = new User;
@@ -67,7 +68,7 @@ export class FirestoreService {
     this.firestore
       .collection('users')
       .doc(userId)
-      .update(this.currentUser.userToJSON())
+      .update(this.userToEdit.userToJSON())
       .then((result) => {
         this.loading = false;
         console.log(result);

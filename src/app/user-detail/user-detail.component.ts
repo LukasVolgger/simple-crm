@@ -2,6 +2,7 @@ import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/models/user.class';
 import { FirestoreService } from 'src/services/firestore.service';
 import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
@@ -43,6 +44,7 @@ export class UserDetailComponent implements OnInit {
   openEditUserDialog(userId: string) {
     console.log('Edit user:', userId);
     this.dialog.open(DialogEditUserComponent);
+    this.firestoreService.userToEdit = new User(this.firestoreService.currentUser.userToJSON());
   }
 
   /**
