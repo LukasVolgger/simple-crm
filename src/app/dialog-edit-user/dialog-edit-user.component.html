@@ -78,5 +78,5 @@
 </div>
 <div mat-dialog-actions>
     <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-    <button color="primary" mat-button cdkFocusInitial>Save</button>
+    <button (click)="this.firestoreService.updateUsers(this.userId); this.dialogRef.close()" color="primary" mat-button cdkFocusInitial>Save</button>
 </div>

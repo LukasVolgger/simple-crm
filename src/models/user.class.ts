@@ -9,6 +9,7 @@ export class User {
     zipCode: string;
     city: string;
     country: string;
+    userId: string;
 
     constructor(obj?: any) { // Makes creating an object with a parameter optional
         // When an instance is created with an object, assign its values to it. Otherwise : '';
@@ -22,6 +23,7 @@ export class User {
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
         this.country = obj ? obj.country : '';
+        this.userId = obj ? obj.userId : '';
     }
 
     /**
@@ -39,7 +41,8 @@ export class User {
             street: this.street,
             zipCode: this.zipCode,
             city: this.city,
-            country: this.country
+            country: this.country,
+            userId: this.userId
         }
     }
 

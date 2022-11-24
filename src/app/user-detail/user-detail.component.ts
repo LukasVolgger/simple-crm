@@ -17,7 +17,7 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public firestoreService: FirestoreService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {
     this.getUserIdFromURL();
   }
@@ -32,7 +32,8 @@ export class UserDetailComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('userId');
       this.firestoreService.getCurrentUser(this.userId);
-    })
+      this.firestoreService.currentUserId = this.userId;
+    });
   }
 
   /**

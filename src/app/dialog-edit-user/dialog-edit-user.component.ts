@@ -8,8 +8,10 @@ import { FirestoreService } from 'src/services/firestore.service';
   styleUrls: ['./dialog-edit-user.component.scss']
 })
 export class DialogEditUserComponent implements OnInit {
+  userId: string = this.firestoreService.currentUserId;
 
-  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>, public firestoreService: FirestoreService) { }
+  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>, public firestoreService: FirestoreService) {
+  }
 
   ngOnInit(): void {
   }

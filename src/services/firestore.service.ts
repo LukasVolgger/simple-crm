@@ -10,6 +10,7 @@ export class FirestoreService {
   dateOfBirth: Date = new Date; // Must be initialized
   users: any;
   currentUser: User = new User;
+  currentUserId: string = '';
 
   loading: boolean = false;
 
@@ -52,6 +53,24 @@ export class FirestoreService {
         this.users = changes;
         console.log(this.users);
       });
+  }
+
+  /**
+   * CRUD => UPDATE
+   * Saves the changes when a user is edited or deleted
+   */
+  updateUsers(userId: string) {
+    this.loading = true;
+    console.log(userId);
+
+    this.firestore
+      .collection('users')
+      .doc(userId)
+      .update(this.currentUser.userToJSON())
+      .then((result) => {
+        this.loading = false;
+        console.log(result);
+      })
   }
 
   /**
