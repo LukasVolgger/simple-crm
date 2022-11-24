@@ -1,0 +1,31 @@
+.mat-card {
+    background-color: #757de8;
+}
+
+.mat-card-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.user-header-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    img {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+.user-header-headline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    h2 {
+        margin: 0;
+    }
+}
