@@ -6,7 +6,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class FirestoreService {
-  user: User = new User();
+  userToAdd: User = new User();
   dateOfBirth: Date = new Date; // Must be initialized
   users: any;
   currentUser: User = new User;
@@ -24,17 +24,19 @@ export class FirestoreService {
    * 1. Converts the date into a unix timestamp
    * 2. Converts the user object into JSON
    */
-  addAllUsers() {
+  addUser() {
     this.loading = true;
-    this.user.dateOfBirth = this.dateOfBirth.getTime();
+    this.userToAdd.dateOfBirth = this.dateOfBirth.getTime();
 
     this.firestore
       .collection('users')
-      .add(this.user.userToJSON())
+      .add(this.userToAdd.userToJSON())
       .then((result) => {
         this.loading = false;
         console.log(result);
       })
+
+    this.userToAdd = new User; // Clear ngModel in template form
   }
 
   /**

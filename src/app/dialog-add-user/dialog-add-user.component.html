@@ -8,13 +8,13 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>First Name</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.firstName" [disabled]="this.firestoreService.loading" name="firstName" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.firstName" [disabled]="this.firestoreService.loading" name="firstName" matInput>
                         <mat-icon matSuffix>person</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Last Name</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.lastName" [disabled]="this.firestoreService.loading" name="lastName" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.lastName" [disabled]="this.firestoreService.loading" name="lastName" matInput>
                         <mat-icon matSuffix>person</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
@@ -29,19 +29,19 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Phone number</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.phoneNumber" [disabled]="this.firestoreService.loading" name="phoneNumber" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.phoneNumber" [disabled]="this.firestoreService.loading" name="phoneNumber" matInput>
                         <mat-icon matSuffix>call</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Email</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.email" [disabled]="this.firestoreService.loading" name="email" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.email" [disabled]="this.firestoreService.loading" name="email" matInput>
                         <mat-icon matSuffix>mail</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Website</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.website" [disabled]="this.firestoreService.loading" name="website" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.website" [disabled]="this.firestoreService.loading" name="website" matInput>
                         <mat-icon matSuffix>language</mat-icon>
                         <mat-hint>*Optional</mat-hint>
                     </mat-form-field>
@@ -52,25 +52,25 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Street & house number</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.street" [disabled]="this.firestoreService.loading" name="street" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.street" [disabled]="this.firestoreService.loading" name="street" matInput>
                         <mat-icon matSuffix>signpost</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Zip Code</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.zipCode" [disabled]="this.firestoreService.loading" name="zipCode" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.zipCode" [disabled]="this.firestoreService.loading" name="zipCode" matInput>
                         <mat-icon matSuffix>location_on</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>City</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.city" [disabled]="this.firestoreService.loading" name="city" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.city" [disabled]="this.firestoreService.loading" name="city" matInput>
                         <mat-icon matSuffix>location_city</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Country</mat-label>
-                        <input [(ngModel)]="this.firestoreService.user.country" [disabled]="this.firestoreService.loading" name="country" matInput>
+                        <input [(ngModel)]="this.firestoreService.userToAdd.country" [disabled]="this.firestoreService.loading" name="country" matInput>
                         <mat-icon matSuffix>flag</mat-icon>
                         <!-- <mat-hint>*Required</mat-hint> -->
                     </mat-form-field>
@@ -80,6 +80,6 @@
     </div>
     <div mat-dialog-actions>
         <button mat-button (click)="this.dialogRef.close()">Cancel</button>
-        <button (click)="this.firestoreService.addAllUsers()" mat-button cdkFocusInitial>Save</button>
+        <button (click)="this.firestoreService.addUser(); this.dialogRef.close()" color="primary" mat-button cdkFocusInitial>Save</button>
     </div>
 </div>
