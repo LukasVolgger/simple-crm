@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FirestoreService } from 'src/services/firestore.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { FirestoreService } from 'src/services/firestore.service';
 })
 export class DialogAddUserComponent implements OnInit {
 
-  constructor(public firestoreService: FirestoreService) { }
+  constructor(public firestoreService: FirestoreService, public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
 
   ngOnInit(): void {
   }
