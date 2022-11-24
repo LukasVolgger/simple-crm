@@ -1,9 +1,10 @@
 import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/models/user.class';
 import { FirestoreService } from 'src/services/firestore.service';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,7 +14,11 @@ import { FirestoreService } from 'src/services/firestore.service';
 export class UserDetailComponent implements OnInit {
   userId: any = '';
 
-  constructor(private route: ActivatedRoute, public firestoreService: FirestoreService) {
+  constructor(
+    private route: ActivatedRoute,
+    public firestoreService: FirestoreService,
+    public dialog: MatDialog
+  ) {
     this.getUserIdFromURL();
   }
 
@@ -26,19 +31,26 @@ export class UserDetailComponent implements OnInit {
   getUserIdFromURL() {
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('userId');
-
       this.firestoreService.getCurrentUser(this.userId);
     })
   }
 
-  // TODO Implement function
-  editCurrentUser(userId: string) {
+  /**
+   * Opens the edit user dialog
+   * @param userId The unique document id from firestore
+   */
+  openEditUserDialog(userId: string) {
     console.log('Edit user:', userId);
+    this.dialog.open(DialogEditUserComponent);
   }
 
-  // TODO Implement function
-  deleteCurrentUser(userId: string) {
+  /**
+   * Opens the user delete dialog
+   * @param userId The unique document id from firestore
+   */
+  openDeleteUserDialog(userId: string) {
     console.log('Delete user:', userId);
+    this.dialog.open(DialogDeleteUserComponent);
   }
 
 }
