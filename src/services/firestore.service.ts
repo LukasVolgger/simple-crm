@@ -8,11 +8,13 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class FirestoreService {
   user: User = new User();
   dateOfBirth: Date = new Date; // Must be initialized
-  loading: boolean = false;
   users: any;
+  currentUser: User = new User;
+
+  loading: boolean = false;
 
   constructor(private firestore: AngularFirestore) {
-    this.getFromFirestore();
+    this.getAllUsers();
   }
 
   /**
@@ -21,7 +23,7 @@ export class FirestoreService {
    * 1. Converts the date into a unix timestamp
    * 2. Converts the user object into JSON
    */
-  addToFirestore() {
+  addAllUsers() {
     this.loading = true;
     this.user.dateOfBirth = this.dateOfBirth.getTime();
 
@@ -35,11 +37,11 @@ export class FirestoreService {
   }
 
   /**
- * CRUD => READ
- * 1. Gets the data from the users collection
- * 2. Updates the local variable users
- */
-  getFromFirestore() {
+   * CRUD => READ
+   * 1. Gets the data from the users collection
+   * 2. Updates the local variable users
+   */
+  getAllUsers() {
     // this.loading = true; 
     // TODO Activate loading while fetching data
 
@@ -50,5 +52,19 @@ export class FirestoreService {
         this.users = changes;
         console.log(this.users);
       });
+  }
+
+  /**
+   * Fetches the current user from Firestore using the document id
+   * @param documentId The unique document id from firestore
+   */
+  getCurrentUser(documentId: string) {
+    this.firestore
+      .collection('users')
+      .doc(documentId)
+      .valueChanges()
+      .subscribe((changes: any) => {
+        this.currentUser = new User(changes);
+      })
   }
 }

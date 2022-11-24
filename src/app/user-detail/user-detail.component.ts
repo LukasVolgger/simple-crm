@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
+import { FirestoreService } from 'src/services/firestore.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -11,9 +12,8 @@ import { User } from 'src/models/user.class';
 })
 export class UserDetailComponent implements OnInit {
   userId: any = '';
-  currentUser: User = new User;
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore) {
+  constructor(private route: ActivatedRoute, public firestoreService: FirestoreService) {
     this.getUserIdFromURL();
   }
 
@@ -27,22 +27,8 @@ export class UserDetailComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('userId');
 
-      this.getCurrentUserFromFirestore(this.userId);
+      this.firestoreService.getCurrentUser(this.userId);
     })
-  }
-
-  /**
-   * Fetches the current user from the Firestore using the document id
-   * @param documentId The unique document id from firestore
-   */
-  getCurrentUserFromFirestore(documentId: string) {
-    this.firestore
-      .collection('users')
-      .doc(documentId)
-      .valueChanges()
-      .subscribe((changes: any) => {
-        this.currentUser = new User(changes);
-      })
   }
 
   // TODO Implement function
