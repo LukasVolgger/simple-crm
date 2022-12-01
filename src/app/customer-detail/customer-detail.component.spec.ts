@@ -5,11 +5,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-import { UserDetailComponent } from './user-detail.component';
+import { CustomerDetailComponent } from './customer-detail.component';
 
 describe('UserDetailComponent', () => {
-  let component: UserDetailComponent;
-  let fixture: ComponentFixture<UserDetailComponent>;
+  let component: CustomerDetailComponent;
+  let fixture: ComponentFixture<CustomerDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -25,11 +25,11 @@ describe('UserDetailComponent', () => {
         },
         { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
       ],
-      declarations: [UserDetailComponent]
+      declarations: [CustomerDetailComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(UserDetailComponent);
+    fixture = TestBed.createComponent(CustomerDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

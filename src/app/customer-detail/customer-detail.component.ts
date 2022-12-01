@@ -8,11 +8,11 @@ import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-u
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.scss']
+  selector: 'app-customer-detail',
+  templateUrl: './customer-detail.component.html',
+  styleUrls: ['./customer-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class CustomerDetailComponent implements OnInit {
   userId: any = '';
 
   constructor(
@@ -31,7 +31,7 @@ export class UserDetailComponent implements OnInit {
    */
   getUserIdFromURL() {
     this.route.paramMap.subscribe(paramMap => {
-      this.userId = paramMap.get('userId');
+      this.userId = paramMap.get('customerId');
       this.firestoreService.getCurrentUser(this.userId);
       this.firestoreService.currentUserId = this.userId;
     });

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogAddUserComponent } from './dialog-add-user.component';
+import { DialogAddCustomerComponent } from './dialog-add-customer.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 
 describe('DialogAddUserComponent', () => {
-  let component: DialogAddUserComponent;
-  let fixture: ComponentFixture<DialogAddUserComponent>;
+  let component: DialogAddCustomerComponent;
+  let fixture: ComponentFixture<DialogAddCustomerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogAddUserComponent],
+      declarations: [DialogAddCustomerComponent],
       providers: [{
         provide: MatDialogRef,
         useValue: []
@@ -21,7 +21,7 @@ describe('DialogAddUserComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(DialogAddUserComponent);
+    fixture = TestBed.createComponent(DialogAddCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

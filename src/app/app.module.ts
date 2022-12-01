@@ -24,8 +24,8 @@ import { MatMenuModule } from '@angular/material/menu';
 // Angular Material - END
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './user/user.component';
-import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
+import { CustomersComponent } from './customers/customers.component';
+import { DialogAddCustomerComponent } from './dialog-add-customer/dialog-add-customer.component';
 import { FormControl, FormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -33,7 +33,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
 
@@ -42,9 +42,9 @@ import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-us
     AppComponent,
     ToolbarComponent,
     DashboardComponent,
-    UserComponent,
-    DialogAddUserComponent,
-    UserDetailComponent,
+    CustomersComponent,
+    DialogAddCustomerComponent,
+    CustomerDetailComponent,
     DialogEditUserComponent,
     DialogDeleteUserComponent
   ],

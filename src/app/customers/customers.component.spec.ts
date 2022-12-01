@@ -3,15 +3,15 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 
-import { UserComponent } from './user.component';
+import { CustomersComponent } from './customers.component';
 
 describe('UserComponent', () => {
-  let component: UserComponent;
-  let fixture: ComponentFixture<UserComponent>;
+  let component: CustomersComponent;
+  let fixture: ComponentFixture<CustomersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserComponent],
+      declarations: [CustomersComponent],
       imports: [
         MatDialogModule
       ],
@@ -23,7 +23,7 @@ describe('UserComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(UserComponent);
+    fixture = TestBed.createComponent(CustomersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
