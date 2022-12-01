@@ -4,8 +4,8 @@
             <div class="user-header-container">
                 <img src="./../../assets/img/account_circle.svg" alt="User img">
                 <div class="user-header-headline">
-                    <h2>{{ this.firestoreService.currentUser.firstName }} {{ this.firestoreService.currentUser.lastName }}</h2>
-                    <span>{{ this.firestoreService.currentUser.email }}</span>
+                    <h2>{{ this.firestoreService.currentCustomer.firstName }} {{ this.firestoreService.currentCustomer.lastName }}</h2>
+                    <span>{{ this.firestoreService.currentCustomer.email }}</span>
                 </div>
             </div>
         </mat-card-content>
@@ -16,27 +16,27 @@
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
-            <button (click)="openEditUserDialog(this.userId)" mat-menu-item>Edit</button>
-            <button (click)="openDeleteUserDialog(this.userId)" mat-menu-item class="delete-user-btn">Delete</button>
+            <button (click)="openEditUserDialog(this.customerId)" mat-menu-item>Edit</button>
+            <button (click)="openDeleteUserDialog(this.customerId)" mat-menu-item class="delete-user-btn">Delete</button>
         </mat-menu>
         <mat-card-content class="user-information">
             <div>
                 <h2>Person</h2>
-                <span><strong>First Name: </strong> {{ this.firestoreService.currentUser.firstName }}</span><br>
-                <span><strong>Last Name: </strong>{{ this.firestoreService.currentUser.lastName }}</span><br>
-                <span><strong>Date of Birth: </strong>{{ this.firestoreService.currentUser.dateOfBirth }}</span><br>
+                <span><strong>First Name: </strong> {{ this.firestoreService.currentCustomer.firstName }}</span><br>
+                <span><strong>Last Name: </strong>{{ this.firestoreService.currentCustomer.lastName }}</span><br>
+                <span><strong>Date of Birth: </strong>{{ this.firestoreService.currentCustomer.dateOfBirth }}</span><br>
             </div>
             <div>
                 <h2>Address</h2>
-                <span><strong>Street: </strong>{{ this.firestoreService.currentUser.street }}</span><br>
-                <span><strong>Zip Code: </strong>{{ this.firestoreService.currentUser.zipCode }}</span><br>
-                <span><strong>City: </strong>{{ this.firestoreService.currentUser.city }}</span><br>
-                <span><strong>Country: </strong>{{ this.firestoreService.currentUser.country }}</span>
+                <span><strong>Street: </strong>{{ this.firestoreService.currentCustomer.street }}</span><br>
+                <span><strong>Zip Code: </strong>{{ this.firestoreService.currentCustomer.zipCode }}</span><br>
+                <span><strong>City: </strong>{{ this.firestoreService.currentCustomer.city }}</span><br>
+                <span><strong>Country: </strong>{{ this.firestoreService.currentCustomer.country }}</span>
             </div>
             <div>
                 <h2>Contact</h2>
-                <span><strong>Phone Number: </strong>{{ this.firestoreService.currentUser.phoneNumber }}</span><br>
-                <span><strong>Email: </strong>{{ this.firestoreService.currentUser.email }}</span><br>
+                <span><strong>Phone Number: </strong>{{ this.firestoreService.currentCustomer.phoneNumber }}</span><br>
+                <span><strong>Email: </strong>{{ this.firestoreService.currentCustomer.email }}</span><br>
             </div>
         </mat-card-content>
     </mat-card>

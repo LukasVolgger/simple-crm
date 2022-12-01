@@ -2,7 +2,7 @@ import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/models/user.class';
+import { Customer } from 'src/models/customer.class';
 import { FirestoreService } from 'src/services/firestore.service';
 import { DialogDeleteCustomerComponent } from '../dialog-delete-customer/dialog-delete-customer.component';
 import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit-customer.component';
@@ -13,46 +13,46 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
   styleUrls: ['./customer-detail.component.scss']
 })
 export class CustomerDetailComponent implements OnInit {
-  userId: any = '';
+  customerId: any = '';
 
   constructor(
     private route: ActivatedRoute,
     public firestoreService: FirestoreService,
     public dialog: MatDialog,
   ) {
-    this.getUserIdFromURL();
+    this.getCustomerIdFromURL();
   }
 
   ngOnInit(): void {
   }
 
   /**
-   * Fetches the userId from the URL parameter and stores it in the variable userId
+   * Fetches the customerId from the URL parameter and stores it in the variable customerId
    */
-  getUserIdFromURL() {
+  getCustomerIdFromURL() {
     this.route.paramMap.subscribe(paramMap => {
-      this.userId = paramMap.get('customerId');
-      this.firestoreService.getCurrentUser(this.userId);
-      this.firestoreService.currentUserId = this.userId;
+      this.customerId = paramMap.get('customerId');
+      this.firestoreService.getCurrentCustomer(this.customerId);
+      this.firestoreService.currentCustomerId = this.customerId;
     });
   }
 
   /**
-   * Opens the edit user dialog
-   * @param userId The unique document id from firestore
+   * Opens the edit customer dialog
+   * @param customerId The unique document id from firestore
    */
-  openEditUserDialog(userId: string) {
-    console.log('Edit user:', userId);
+  openEditUserDialog(customerId: string) {
+    console.log('Edit customer:', customerId);
     this.dialog.open(DialogEditCustomerComponent);
-    this.firestoreService.userToEdit = new User(this.firestoreService.currentUser.userToJSON());
+    this.firestoreService.customerToEdit = new Customer(this.firestoreService.currentCustomer.customerToJSON());
   }
 
   /**
-   * Opens the user delete dialog
-   * @param userId The unique document id from firestore
+   * Opens the customer delete dialog
+   * @param customerId The unique document id from firestore
    */
-  openDeleteUserDialog(userId: string) {
-    console.log('Delete user:', userId);
+  openDeleteUserDialog(customerId: string) {
+    console.log('Delete customer:', customerId);
     this.dialog.open(DialogDeleteCustomerComponent);
   }
 

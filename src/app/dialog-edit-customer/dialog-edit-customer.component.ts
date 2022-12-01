@@ -8,7 +8,7 @@ import { FirestoreService } from 'src/services/firestore.service';
   styleUrls: ['./dialog-edit-customer.component.scss']
 })
 export class DialogEditCustomerComponent implements OnInit {
-  userId: string = this.firestoreService.currentUserId;
+  customerId: string = this.firestoreService.currentCustomerId;
 
   constructor(public dialogRef: MatDialogRef<DialogEditCustomerComponent>, public firestoreService: FirestoreService) {
   }
@@ -20,7 +20,7 @@ export class DialogEditCustomerComponent implements OnInit {
    * Help function to simulate a short loading time
    */
   editUser() {
-    this.firestoreService.updateUser(this.userId);
+    this.firestoreService.updateCustomer(this.customerId);
     setTimeout(() => {
       this.dialogRef.close();
     }, 500);

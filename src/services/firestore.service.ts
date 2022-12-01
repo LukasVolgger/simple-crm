@@ -1,74 +1,74 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/models/user.class';
+import { Customer } from 'src/models/customer.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
-  userToAdd: User = new User();
-  userToEdit: User = new User();
+  customerToAdd: Customer = new Customer();
+  customerToEdit: Customer = new Customer();
   dateOfBirth: Date = new Date; // Must be initialized
-  users: any;
-  currentUser: User = new User;
-  currentUserId: string = '';
+  customers: any;
+  currentCustomer: Customer = new Customer();
+  currentCustomerId: string = '';
 
   loading: boolean = false;
 
   constructor(private firestore: AngularFirestore) {
-    this.getAllUsers();
+    this.getAllCustomers();
   }
 
   /**
    * CRUD => CREATE
-   * Saves the user in the Firestore as JSON
+   * Saves the customer in the Firestore as JSON
    * 1. Converts the date into a unix timestamp
-   * 2. Converts the user object into JSON
+   * 2. Converts the customer object into JSON
    */
-  addUser() {
+  addCustomer() {
     this.loading = true;
-    this.userToAdd.dateOfBirth = this.dateOfBirth.getTime();
+    this.customerToAdd.dateOfBirth = this.dateOfBirth.getTime();
 
     this.firestore
-      .collection('users')
-      .add(this.userToAdd.userToJSON())
+      .collection('customers')
+      .add(this.customerToAdd.customerToJSON())
       .then((result) => {
         this.loading = false;
         console.log(result);
       })
 
-    this.userToAdd = new User; // Clear ngModel in template form
+    this.customerToAdd = new Customer(); // Clear ngModel in template form
   }
 
   /**
    * CRUD => READ
-   * 1. Gets the data from the users collection
-   * 2. Updates the local variable users
+   * 1. Gets the data from the customers collection
+   * 2. Updates the local variable customers
    */
-  getAllUsers() {
+  getAllCustomers() {
     // this.loading = true; 
     // TODO Activate loading while fetching data
 
     this.firestore
-      .collection('users')
-      .valueChanges({ idField: 'userId' })
+      .collection('customers')
+      .valueChanges({ idField: 'customerId' })
       .subscribe((changes: any) => {
-        this.users = changes;
-        console.log(this.users);
+        this.customers = changes;
       });
   }
 
   /**
    * CRUD => UPDATE
-   * Updates the passed user in the Firestore
+   * Updates the passed customer in the Firestore
+   * @param customerId The unique document id from firestore
    */
-  updateUser(userId: string) {
+  updateCustomer(customerId: string) {
     this.loading = true;
 
     this.firestore
-      .collection('users')
-      .doc(userId)
-      .update(this.userToEdit.userToJSON())
+      .collection('customers')
+      .doc(customerId)
+      .update(this.customerToEdit.customerToJSON())
       .then((result) => {
         this.loading = false;
         console.log(result);
@@ -77,14 +77,15 @@ export class FirestoreService {
 
   /**
    * CRUD => DELETE
-   * Deletes a user from the Firestore
+   * Deletes a customer from the Firestore
+   * @param customerId The unique document id from firestore
    */
-  deleteUser(userId: string) {
+  deleteCustomer(customerId: string) {
     this.loading = true;
 
     this.firestore
-      .collection('users')
-      .doc(userId)
+      .collection('customers')
+      .doc(customerId)
       .delete()
       .then((result) => {
         this.loading = false;
@@ -96,13 +97,13 @@ export class FirestoreService {
    * Fetches the current user from Firestore using the document id
    * @param documentId The unique document id from firestore
    */
-  getCurrentUser(documentId: string) {
+  getCurrentCustomer(documentId: string) {
     this.firestore
-      .collection('users')
+      .collection('customers')
       .doc(documentId)
       .valueChanges()
       .subscribe((changes: any) => {
-        this.currentUser = new User(changes);
+        this.currentCustomer = new Customer(changes);
       })
   }
 }

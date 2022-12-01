@@ -9,7 +9,7 @@ import { FirestoreService } from 'src/services/firestore.service';
   styleUrls: ['./dialog-delete-customer.component.scss']
 })
 export class DialogDeleteCustomerComponent implements OnInit {
-  userId: string = this.firestoreService.currentUserId;
+  customerId: string = this.firestoreService.currentCustomerId;
 
   constructor(public dialogRef: MatDialogRef<DialogDeleteCustomerComponent>, public firestoreService: FirestoreService, private router: Router) { }
 
@@ -20,7 +20,7 @@ export class DialogDeleteCustomerComponent implements OnInit {
    * Help function to simulate a short loading time
    */
   deleteUser() {
-    this.firestoreService.deleteUser(this.userId);
+    this.firestoreService.deleteCustomer(this.customerId);
 
     setTimeout(() => {
       this.redirect();
@@ -28,7 +28,7 @@ export class DialogDeleteCustomerComponent implements OnInit {
   }
 
   /**
-   * Redirects to the user page when a user is deleted
+   * Redirects to the customers page when a customer is deleted
    */
   redirect() {
     this.dialogRef.close();

@@ -1,4 +1,4 @@
-export class User {
+export class Customer {
     firstName: string;
     lastName: string;
     dateOfBirth: number; // Unix timestamp
@@ -9,7 +9,7 @@ export class User {
     zipCode: string;
     city: string;
     country: string;
-    userId: string;
+    customerId: string;
 
     constructor(obj?: any) { // Makes creating an object with a parameter optional
         // When an instance is created with an object, assign its values to it. Otherwise : '';
@@ -23,14 +23,14 @@ export class User {
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
         this.country = obj ? obj.country : '';
-        this.userId = obj ? obj.userId : '';
+        this.customerId = obj ? obj.customerId : '';
     }
 
     /**
-     * Converts the user object into a JSON
+     * Converts the customer object into a JSON
      * @returns JSON
      */
-    public userToJSON() {
+    public customerToJSON() {
         return {
             firstName: this.firstName,
             lastName: this.lastName,
@@ -42,7 +42,7 @@ export class User {
             zipCode: this.zipCode,
             city: this.city,
             country: this.country,
-            userId: this.userId
+            customerId: this.customerId
         }
     }
 
