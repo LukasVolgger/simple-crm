@@ -3,15 +3,15 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { MatDialogRef } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 
-import { DialogDeleteUserComponent } from './dialog-delete-user.component';
+import { DialogEditCustomerComponent } from './dialog-edit-customer.component';
 
-describe('DialogDeleteUserComponent', () => {
-  let component: DialogDeleteUserComponent;
-  let fixture: ComponentFixture<DialogDeleteUserComponent>;
+describe('DialogEditUserComponent', () => {
+  let component: DialogEditCustomerComponent;
+  let fixture: ComponentFixture<DialogEditCustomerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogDeleteUserComponent],
+      declarations: [DialogEditCustomerComponent],
       providers: [{
         provide: MatDialogRef,
         useValue: []
@@ -20,7 +20,7 @@ describe('DialogDeleteUserComponent', () => {
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(DialogDeleteUserComponent);
+    fixture = TestBed.createComponent(DialogEditCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

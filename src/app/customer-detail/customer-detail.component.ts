@@ -4,8 +4,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { FirestoreService } from 'src/services/firestore.service';
-import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
-import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogDeleteCustomerComponent } from '../dialog-delete-customer/dialog-delete-customer.component';
+import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit-customer.component';
 
 @Component({
   selector: 'app-customer-detail',
@@ -43,7 +43,7 @@ export class CustomerDetailComponent implements OnInit {
    */
   openEditUserDialog(userId: string) {
     console.log('Edit user:', userId);
-    this.dialog.open(DialogEditUserComponent);
+    this.dialog.open(DialogEditCustomerComponent);
     this.firestoreService.userToEdit = new User(this.firestoreService.currentUser.userToJSON());
   }
 
@@ -53,7 +53,7 @@ export class CustomerDetailComponent implements OnInit {
    */
   openDeleteUserDialog(userId: string) {
     console.log('Delete user:', userId);
-    this.dialog.open(DialogDeleteUserComponent);
+    this.dialog.open(DialogDeleteCustomerComponent);
   }
 
 }

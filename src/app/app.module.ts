@@ -34,8 +34,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
-import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
-import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
+import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-customer.component';
+import { DialogDeleteCustomerComponent } from './dialog-delete-customer/dialog-delete-customer.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +45,8 @@ import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-us
     CustomersComponent,
     DialogAddCustomerComponent,
     CustomerDetailComponent,
-    DialogEditUserComponent,
-    DialogDeleteUserComponent
+    DialogEditCustomerComponent,
+    DialogDeleteCustomerComponent
   ],
   imports: [
     BrowserModule,

@@ -4,14 +4,14 @@ import { Router } from '@angular/router';
 import { FirestoreService } from 'src/services/firestore.service';
 
 @Component({
-  selector: 'app-dialog-delete-user',
-  templateUrl: './dialog-delete-user.component.html',
-  styleUrls: ['./dialog-delete-user.component.scss']
+  selector: 'app-dialog-delete-customer',
+  templateUrl: './dialog-delete-customer.component.html',
+  styleUrls: ['./dialog-delete-customer.component.scss']
 })
-export class DialogDeleteUserComponent implements OnInit {
+export class DialogDeleteCustomerComponent implements OnInit {
   userId: string = this.firestoreService.currentUserId;
 
-  constructor(public dialogRef: MatDialogRef<DialogDeleteUserComponent>, public firestoreService: FirestoreService, private router: Router) { }
+  constructor(public dialogRef: MatDialogRef<DialogDeleteCustomerComponent>, public firestoreService: FirestoreService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +32,6 @@ export class DialogDeleteUserComponent implements OnInit {
    */
   redirect() {
     this.dialogRef.close();
-    this.router.navigateByUrl('/user');
+    this.router.navigateByUrl('/customers');
   }
 }
