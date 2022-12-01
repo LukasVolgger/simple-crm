@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { DialogEditCustomerComponent } from './dialog-edit-customer.component';
 
-describe('DialogEditUserComponent', () => {
+describe('DialogEditCustomerComponent', () => {
   let component: DialogEditCustomerComponent;
   let fixture: ComponentFixture<DialogEditCustomerComponent>;
 

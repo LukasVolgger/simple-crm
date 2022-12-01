@@ -15,7 +15,7 @@
     height: 100%;
 }
 
-.user-header-container {
+.customer-header-container {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -25,7 +25,7 @@
     }
 }
 
-.user-header-headline {
+.customer-header-headline {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,17 +36,17 @@
     }
 }
 
-.open-user-menu-btn {
+.open-customer-menu-btn {
     position: absolute;
     top: 8px;
     right: 8px;
 }
 
-.delete-user-btn {
+.delete-customer-btn {
     color: #f44336;
 }
 
-.user-information {
+.customer-information {
     display: flex;
     flex-direction: column;
     gap: 16px;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/services/firestore.service';
@@ -20,18 +19,18 @@ export class CustomersComponent implements OnInit {
   }
 
   /**
-   * Opens the add user dialog
+   * Opens the add customer dialog
    */
-  openAddUserDialog() {
+  openAddCustomerDialog() {
     this.dialog.open(DialogAddCustomerComponent);
   }
 
   /**
-   * Redirects to user/userId
-   * @param userId The unique firebase document id
+   * Redirects to customer/customerId
+   * @param customerId The unique firebase document id
    */
-  openUserDetails(userId: string) {
-    this.router.navigateByUrl('customers/' + userId)
+  openCustomerDetails(customerId: string) {
+    this.router.navigateByUrl('customers/' + customerId)
   }
 
 }

@@ -1,9 +1,9 @@
 <div class="content">
     <mat-card class="header-card">
         <mat-card-content class="header-card-content">
-            <div class="user-header-container">
-                <img src="./../../assets/img/account_circle.svg" alt="User img">
-                <div class="user-header-headline">
+            <div class="customer-header-container">
+                <img src="./../../assets/img/account_circle.svg" alt="customer img">
+                <div class="customer-header-headline">
                     <h2>{{ this.firestoreService.currentCustomer.firstName }} {{ this.firestoreService.currentCustomer.lastName }}</h2>
                     <span>{{ this.firestoreService.currentCustomer.email }}</span>
                 </div>
@@ -12,14 +12,14 @@
     </mat-card>
 
     <mat-card>
-        <button color="primary" mat-icon-button [matMenuTriggerFor]="menu" class="open-user-menu-btn">
+        <button color="primary" mat-icon-button [matMenuTriggerFor]="menu" class="open-customer-menu-btn">
             <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
-            <button (click)="openEditUserDialog(this.customerId)" mat-menu-item>Edit</button>
-            <button (click)="openDeleteUserDialog(this.customerId)" mat-menu-item class="delete-user-btn">Delete</button>
+            <button (click)="openEditCustomerDialog(this.customerId)" mat-menu-item>Edit</button>
+            <button (click)="openDeleteCustomerDialog(this.customerId)" mat-menu-item class="delete-customer-btn">Delete</button>
         </mat-menu>
-        <mat-card-content class="user-information">
+        <mat-card-content class="customer-information">
             <div>
                 <h2>Person</h2>
                 <span><strong>First Name: </strong> {{ this.firestoreService.currentCustomer.firstName }}</span><br>

@@ -19,7 +19,7 @@ export class DialogEditCustomerComponent implements OnInit {
   /**
    * Help function to simulate a short loading time
    */
-  editUser() {
+  editCustomer() {
     this.firestoreService.updateCustomer(this.customerId);
     setTimeout(() => {
       this.dialogRef.close();

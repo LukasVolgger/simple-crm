@@ -5,7 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 
-describe('DialogAddUserComponent', () => {
+describe('DialogAddCustomerComponent', () => {
   let component: DialogAddCustomerComponent;
   let fixture: ComponentFixture<DialogAddCustomerComponent>;
 

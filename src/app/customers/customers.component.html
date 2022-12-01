@@ -15,10 +15,10 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openUserDetails(row.customerId)">
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openCustomerDetails(row.customerId)">
     </tr>
 </table>
 
-<button (click)="openAddUserDialog()" mat-fab color="primary" class="add-user-btn" matTooltip="Add user">
+<button (click)="openAddCustomerDialog()" mat-fab color="primary" class="add-customer-btn" matTooltip="Add customer">
     <mat-icon>add</mat-icon>
 </button>

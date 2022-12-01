@@ -94,7 +94,7 @@ export class FirestoreService {
   }
 
   /**
-   * Fetches the current user from Firestore using the document id
+   * Fetches the current customer from Firestore using the document id
    * @param documentId The unique document id from firestore
    */
   getCurrentCustomer(documentId: string) {

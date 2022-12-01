@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { DialogDeleteCustomerComponent } from './dialog-delete-customer.component';
 
-describe('DialogDeleteUserComponent', () => {
+describe('DialogDeleteCustomerComponent', () => {
   let component: DialogDeleteCustomerComponent;
   let fixture: ComponentFixture<DialogDeleteCustomerComponent>;
 

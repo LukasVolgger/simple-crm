@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { CustomersComponent } from './customers.component';
 
-describe('UserComponent', () => {
+describe('CustomerComponent', () => {
   let component: CustomersComponent;
   let fixture: ComponentFixture<CustomersComponent>;
 

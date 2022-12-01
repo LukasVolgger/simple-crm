@@ -19,7 +19,7 @@ export class DialogDeleteCustomerComponent implements OnInit {
   /**
    * Help function to simulate a short loading time
    */
-  deleteUser() {
+  deleteCustomer() {
     this.firestoreService.deleteCustomer(this.customerId);
 
     setTimeout(() => {
