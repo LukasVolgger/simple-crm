@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Customer } from 'src/models/customer.class';
 import { FirestoreService } from 'src/services/firestore.service';
+import { UtilsService } from 'src/services/utils.service';
 import { DialogDeleteCustomerComponent } from '../dialog-delete-customer/dialog-delete-customer.component';
 import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit-customer.component';
 
@@ -18,6 +19,7 @@ export class CustomerDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public firestoreService: FirestoreService,
+    public utils: UtilsService,
     public dialog: MatDialog,
   ) {
     this.getCustomerIdFromURL();

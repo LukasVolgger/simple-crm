@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/services/firestore.service';
+import { UtilsService } from 'src/services/utils.service';
 import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
 
 @Component({
@@ -12,7 +13,7 @@ import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-cu
 export class CustomersComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth'];
 
-  constructor(public dialog: MatDialog, public firestoreService: FirestoreService, private router: Router) {
+  constructor(public dialog: MatDialog, public firestoreService: FirestoreService, private router: Router, public utils: UtilsService) {
   }
 
   ngOnInit(): void {

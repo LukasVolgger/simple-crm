@@ -24,7 +24,7 @@
                 <h2>Person</h2>
                 <span><strong>First Name: </strong> {{ this.firestoreService.currentCustomer.firstName }}</span><br>
                 <span><strong>Last Name: </strong>{{ this.firestoreService.currentCustomer.lastName }}</span><br>
-                <span><strong>Date of Birth: </strong>{{ this.firestoreService.currentCustomer.dateOfBirth }}</span><br>
+                <span><strong matTooltip="MM/DD/YYYY">Date of Birth: </strong>{{ this.utils.convertTimestampToDate(this.firestoreService.currentCustomer.dateOfBirth) }}</span><br>
             </div>
             <div>
                 <h2>Address</h2>
