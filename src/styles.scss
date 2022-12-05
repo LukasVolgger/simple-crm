@@ -15,6 +15,13 @@ fieldset {
     border-radius: 5px;
 }
 
+:root {
+    // Material colors
+    --primary-col: #3F51B5;
+    --accent-col: #FF4081;
+    --warn-col: #F44A3E;
+}
+
 .dialog-wrapper {
     position: relative;
 }

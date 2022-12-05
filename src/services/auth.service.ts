@@ -65,7 +65,7 @@ export class AuthService {
           if (user && user.emailVerified) {
             this.router.navigate(['main']);
           } else {
-            this.displayAuthErrorDialog('warning', 'Attention', 'Please verify your email!', '', '');
+            this.displayAuthErrorDialog('warning', 'Attention', 'Please verify your email!', 'null', 'null');
           }
 
         });
@@ -114,7 +114,7 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        this.displayAuthErrorDialog('info', 'Info', 'Password reset email sent, check your inbox.', '', '');
+        this.displayAuthErrorDialog('info', 'Info', 'Password reset email sent, check your inbox.', 'null', 'null');
       })
       .catch((error) => {
         this.displayAuthErrorDialog('warning', 'Attention', 'An error has occurred.', error.message, error.code);

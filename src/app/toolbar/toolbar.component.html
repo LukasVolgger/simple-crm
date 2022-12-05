@@ -16,6 +16,12 @@
                     <span>Customers</span>
                 </a>
             </mat-list-item>
+            <mat-list-item role="listitem">
+                <a (click)="this.authService.logOut()">
+                    <mat-icon color="primary">logout</mat-icon>
+                    <span>Logout</span>
+                </a>
+            </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
     <div class="example-sidenav-content">
