@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 
   /**
@@ -18,5 +19,15 @@ export class UtilsService {
     let formattedDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
 
     return formattedDate;
+  }
+
+  /**
+   * Redirects to the login page and reloads the page once
+   * Is necessary to avoid login problems
+   */
+  redirectToLogin() {
+    this.router.navigate(['login']).then(() => {
+      window.location.reload();
+    });
   }
 }
