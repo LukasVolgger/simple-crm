@@ -39,7 +39,7 @@ import { DialogDeleteCustomerComponent } from './dialog-delete-customer/dialog-d
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailAdressComponent } from './verify-email-adress/verify-email-adress.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { VerifyEmailAdressComponent } from './verify-email-adress/verify-email-a
     LoginComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailAdressComponent
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
