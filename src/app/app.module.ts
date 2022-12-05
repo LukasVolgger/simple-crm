@@ -40,6 +40,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { DialogAuthErrorsComponent } from './dialog-auth-errors/dialog-auth-errors.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
     LoginComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    DialogAuthErrorsComponent
   ],
   imports: [
     BrowserModule,

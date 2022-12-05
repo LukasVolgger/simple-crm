@@ -1,0 +1,13 @@
+<div class="mat-dialog-header">
+    <i class="material-icons">{{ this.authService.authErrorIcon }}</i>
+    <h1 mat-dialog-title>{{ this.authService.authErrorHeadline }}</h1>
+</div>
+
+<div mat-dialog-content>
+    <h2>{{ this.authService.authErrorUserMessage }}</h2>
+    <p><strong>Error Message: </strong> {{ this.authService.authErrorMessage }}</p>
+    <p><strong>Error Code: </strong> {{ this.authService.authErrorCode? this.authService.authErrorCode : '' }}</p>
+</div>
+<div mat-dialog-actions>
+    <button (click)="this.dialogRef.close()" color="primary" mat-button cdkFocusInitial>Ok</button>
+</div>

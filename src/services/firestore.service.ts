@@ -13,6 +13,8 @@ export class FirestoreService {
   currentCustomer: Customer = new Customer();
   currentCustomerId: string = '';
 
+  allUsers: any;
+
   loading: boolean = false;
 
   constructor(private firestore: AngularFirestore) {
@@ -105,5 +107,19 @@ export class FirestoreService {
       .subscribe((changes: any) => {
         this.currentCustomer = new Customer(changes);
       })
+  }
+
+  /**
+   * CRUD => READ
+   * 1. Gets the data from the users collection
+   * 2. Updates the local variable allUsers
+   */
+  getAllUsers() {
+    this.firestore
+      .collection('users')
+      .valueChanges()
+      .subscribe((changes: any) => {
+        this.allUsers = changes;
+      });
   }
 }

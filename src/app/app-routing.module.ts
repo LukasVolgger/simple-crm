@@ -7,13 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { AuthGuard } from 'src/guard/auth.guard';
 
 const routes: Routes = [
-  // { path: "", component: DashboardComponent },
-  // { path: "dashboard", component: DashboardComponent },
-  // { path: "customers", component: CustomersComponent },
-  // { path: "customers/:customerId", component: CustomerDetailComponent },
-
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
@@ -27,7 +23,6 @@ const routes: Routes = [
     ],
     component: DashboardComponent, canActivate: [AuthGuard]
   },
-
 ];
 
 @NgModule({
