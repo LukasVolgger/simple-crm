@@ -41,6 +41,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { DialogAuthErrorsComponent } from './dialog-auth-errors/dialog-auth-errors.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { DialogAuthErrorsComponent } from './dialog-auth-errors/dialog-auth-erro
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DialogAuthErrorsComponent
+    DialogAuthErrorsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

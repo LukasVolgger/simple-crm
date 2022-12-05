@@ -31,7 +31,7 @@ export class CustomersComponent implements OnInit {
    * @param customerId The unique firebase document id
    */
   openCustomerDetails(customerId: string) {
-    this.router.navigateByUrl('customers/' + customerId)
+    this.router.navigateByUrl('main/customers/' + customerId)
   }
 
 }

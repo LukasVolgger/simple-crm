@@ -57,13 +57,13 @@ export class AuthService {
 
           // If user has verified his email, but the page is not reloaded, the login does not work
           if (user && user.emailVerified && this.router.url == '/login') {
-            this.router.navigate(['dashboard']).then(() => {
+            this.router.navigate(['main']).then(() => {
               window.location.reload();
             });
           }
 
           if (user && user.emailVerified) {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['main']);
           } else {
             this.displayAuthErrorDialog('warning', 'Attention', 'Please verify your email!', '', '');
           }
@@ -138,7 +138,7 @@ export class AuthService {
 
       // Cannot be forwarded immediately after authentication
       setTimeout(() => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['main']);
       }, 1000);
     });
   }
@@ -152,7 +152,7 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['main']);
         this.setUserData(result.user);
       })
       .catch((error) => {
