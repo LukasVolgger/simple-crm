@@ -1,1 +1,17 @@
-<p>sign-up works!</p>
+<h2>Sign Up</h2>
+
+<form>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput #userEmail required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput #userPwd required>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="authService.signUp(userEmail.value, userPwd.value)">Sign Up</button>
+    <button mat-raised-button color="secondary" (click)="authService.googleAuth()">Continue with Google</button><br>
+    <a (click)="this.utils.redirectToLogin()">Already have an account?</a><br>
+</form>
