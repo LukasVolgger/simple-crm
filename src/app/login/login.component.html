@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div>
+    <p>New to Simple CRM?</p>
+    <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active">Sign up</a>
+</div>
+
+<div class="login-container">
+    <button (click)="this.authService.googleAuth()" class="google-login" mat-stroked-button>
+        <img class="google-icon" src="./../../assets/img/icons/google.svg" alt="Google Logo Icon"/>Login with Google Account</button>
+    <p>or</p>
+
+    <form>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input autocomplete="off" type="email" matInput #userName placeholder="Email" />
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input autocomplete="off" type="password" matInput #userPassword placeholder="Password" />
+            </mat-form-field>
+        </p>
+
+        <button mat-raised-button color="primary" (click)="this.authService.signIn(userName.value, userPassword.value)">Login</button>
+        <p>
+            <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active">Forgot Password?</a>
+        </p>
+
+    </form>
+</div>
