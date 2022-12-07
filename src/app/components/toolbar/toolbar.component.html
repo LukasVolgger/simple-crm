@@ -32,10 +32,10 @@
                 </button>
                 <span>Simple CRM</span>
             </div>
-            <div class="toolbar-right">
+            <div class="toolbar-right" *ngIf="authService.userData as user">
                 <span>Lukas Volgger</span>
                 <a routerLink="account">
-                    <img class="profile-picture" src="./../../assets/img/blank_user.svg" alt="User">
+                    <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../../assets/img/blank_user.svg' }}" alt="{{ user.displayName }}" />
                 </a>
             </div>
 
