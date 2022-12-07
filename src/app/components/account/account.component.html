@@ -5,10 +5,22 @@
     </mat-card-header>
 
     <mat-card-content>
-        <p><strong>User ID: </strong>{{user.uid}}</p>
-        <p><strong>Display Name: </strong>{{user.displayName}}</p>
-        <p><strong>Email: </strong>{{user.email}}</p>
-        <p><strong>Email Verified: </strong>{{user.emailVerified}}</p>
+        <div class="data-row">
+            <strong>User ID: </strong>
+            <span>{{user.uid}}</span>
+        </div>
+        <div class="data-row">
+            <strong>Display Name: </strong>
+            <span>{{user.displayName}}</span>
+        </div>
+        <div class="data-row">
+            <strong>Email: </strong>
+            <span>{{user.email}}</span>
+        </div>
+        <div class="data-row">
+            <strong>Email Verified: </strong>
+            <span>{{user.emailVerified}}</span>
+        </div>
     </mat-card-content>
     <mat-card-actions>
         <button mat-stroked-button color="primary" (click)="this.authService.logOut()">Log Out</button>
