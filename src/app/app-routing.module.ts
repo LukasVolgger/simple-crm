@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { MainComponent } from './main/main.component';
 import { AuthGuard } from './guard/auth.guard';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     path: 'main',
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'account', component: AccountComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'customers/:customerId', component: CustomerDetailComponent }
     ],

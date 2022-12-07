@@ -26,10 +26,19 @@
     </mat-drawer>
     <div class="example-sidenav-content">
         <mat-toolbar color="primary">
-            <button type="button" mat-button (click)="drawer.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>Simple CRM</span>
+            <div class="toolbar-left">
+                <button type="button" mat-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>Simple CRM</span>
+            </div>
+            <div class="toolbar-right">
+                <span>Lukas Volgger</span>
+                <a routerLink="account">
+                    <img class="profile-picture" src="./../../assets/img/blank_user.svg" alt="User">
+                </a>
+            </div>
+
         </mat-toolbar>
         <div class="router-outlet-container">
             <router-outlet></router-outlet>

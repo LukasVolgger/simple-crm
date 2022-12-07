@@ -38,6 +38,30 @@ mat-drawer {
     }
 }
 
+.mat-toolbar {
+    justify-content: space-between;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    span {
+        font-size: 16px;
+    }
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.profile-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
 .router-outlet-container {
     padding: 16px 64px;
 }
