@@ -1,43 +1,85 @@
 <div class="content">
-    <mat-card class="header-card">
+    <mat-card>
         <mat-card-content class="header-card-content">
             <div class="customer-header-container">
-                <img src="./../../assets/img/account_circle.svg" alt="customer img">
+                <img src="./../../assets/img/blank_customer.svg" alt="Customer">
                 <div class="customer-header-headline">
                     <h2>{{ this.firestoreService.currentCustomer.firstName }} {{ this.firestoreService.currentCustomer.lastName }}</h2>
-                    <span>{{ this.firestoreService.currentCustomer.email }}</span>
+                    <span><strong>ID: </strong>{{ this.customerId }}</span>
                 </div>
             </div>
         </mat-card-content>
     </mat-card>
 
     <mat-card>
-        <button color="primary" mat-icon-button [matMenuTriggerFor]="menu" class="open-customer-menu-btn">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-            <button (click)="openEditCustomerDialog(this.customerId)" mat-menu-item>Edit</button>
-            <button (click)="openDeleteCustomerDialog(this.customerId)" mat-menu-item class="delete-customer-btn">Delete</button>
-        </mat-menu>
-        <mat-card-content class="customer-information">
-            <div>
-                <h2>Person</h2>
-                <span><strong>First Name: </strong> {{ this.firestoreService.currentCustomer.firstName }}</span><br>
-                <span><strong>Last Name: </strong>{{ this.firestoreService.currentCustomer.lastName }}</span><br>
-                <span><strong matTooltip="MM/DD/YYYY">Date of Birth: </strong>{{ this.utils.convertTimestampToDate(this.firestoreService.currentCustomer.dateOfBirth) }}</span><br>
+        <mat-card-content>
+            <div class="category-header">
+                <mat-icon matSuffix>person</mat-icon>
+                <h2 class="category-title">Person</h2>
             </div>
-            <div>
-                <h2>Address</h2>
-                <span><strong>Street: </strong>{{ this.firestoreService.currentCustomer.street }}</span><br>
-                <span><strong>Zip Code: </strong>{{ this.firestoreService.currentCustomer.zipCode }}</span><br>
-                <span><strong>City: </strong>{{ this.firestoreService.currentCustomer.city }}</span><br>
-                <span><strong>Country: </strong>{{ this.firestoreService.currentCustomer.country }}</span>
+            <div class="data-row">
+                <strong>First Name: </strong>
+                <span> {{ this.firestoreService.currentCustomer.firstName }}</span>
             </div>
-            <div>
-                <h2>Contact</h2>
-                <span><strong>Phone Number: </strong>{{ this.firestoreService.currentCustomer.phoneNumber }}</span><br>
-                <span><strong>Email: </strong>{{ this.firestoreService.currentCustomer.email }}</span><br>
+            <div class="data-row">
+                <strong>Last Name: </strong>
+                <span>{{ this.firestoreService.currentCustomer.lastName }}</span>
+            </div>
+            <div class="data-row">
+                <strong matTooltip="MM/DD/YYYY">Date of Birth: </strong>
+                <span>{{ this.utils.convertTimestampToDate(this.firestoreService.currentCustomer.dateOfBirth) }}</span>
             </div>
         </mat-card-content>
     </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <div class="category-header">
+                <mat-icon matSuffix>location_on</mat-icon>
+                <h2 class="category-title">Address</h2>
+            </div>
+            <div class="data-row">
+                <strong>Street: </strong>
+                <span>{{ this.firestoreService.currentCustomer.street }}</span>
+            </div>
+            <div class="data-row">
+                <strong>Zip Code: </strong>
+                <span>{{ this.firestoreService.currentCustomer.zipCode }}</span>
+            </div>
+            <div class="data-row">
+                <strong>City: </strong>
+                <span>{{ this.firestoreService.currentCustomer.city }}</span>
+            </div>
+            <div class="data-row">
+                <strong>Country: </strong>
+                <span>{{ this.firestoreService.currentCustomer.country }}</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <div class="category-header">
+                <mat-icon matSuffix>phone</mat-icon>
+                <h2 class="category-title">Contact</h2>
+            </div>
+            <div class="data-row">
+                <strong>Phone Number: </strong>
+                <span>{{ this.firestoreService.currentCustomer.phoneNumber }}</span>
+            </div>
+            <div class="data-row">
+                <strong>Email: </strong>
+                <span>{{ this.firestoreService.currentCustomer.email }}</span>
+            </div>
+            <div class="data-row">
+                <strong>Website: </strong>
+                <span>{{ this.firestoreService.currentCustomer.website }}</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="customer-actions">
+        <button (click)="openEditCustomerDialog(this.customerId)" color="primary" mat-stroked-button>Edit</button>
+        <button (click)="openDeleteCustomerDialog(this.customerId)" color="warn" mat-stroked-button>Delete</button>
+    </div>
 </div>

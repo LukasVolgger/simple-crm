@@ -4,10 +4,6 @@
     gap: 32px;
 }
 
-.header-card {
-    background-color: #757de8;
-}
-
 .header-card-content {
     display: flex;
     align-items: center;
@@ -30,24 +26,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    color: white;
     h2 {
         margin: 0;
     }
 }
 
-.open-customer-menu-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-}
-
-.delete-customer-btn {
-    color: #f44336;
-}
-
-.customer-information {
+.category-header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-bottom: solid 1px rgba(0, 0, 0, .12);
+    margin-bottom: 16px;
+    mat-icon {
+        color: var(--primary-col);
+    }
+    h2 {
+        margin: 0;
+        // color: var(--warn-col);
+    }
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    border-bottom: dashed 1px rgba(0, 0, 0, .12);
+    strong {
+        width: 164px;
+        font-weight: 400;
+    }
+    span {
+        font-weight: 100;
+    }
+}
+
+.customer-actions {
+    display: flex;
+    align-items: center;
     gap: 16px;
 }
