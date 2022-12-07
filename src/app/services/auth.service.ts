@@ -13,6 +13,7 @@ import { DialogAuthErrorsComponent } from '../components/dialog-auth-errors/dial
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  newDisplayName: string = '';
   authErrorIcon: string = 'info';
   authErrorHeadline: string = '';
   authErrorUserMessage: string = '';
@@ -194,6 +195,35 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
+    });
+  }
+
+  /**
+ * Changes the displayName of the currently logged in user
+ * @param newName String with the new name
+ */
+  changeDisplayName(newName: string) {
+    this.afAuth.currentUser.then((user) => {
+      user!.updateProfile({
+        displayName: newName
+      }).then(() => {
+        this.firestoreService.userData = this.userData;
+        this.firestoreService.updateUser(user!.uid);
+      })
+    })
+  }
+
+  /**
+ * Deletes the currently logged in user
+ */
+  deleteUser() {
+    // this.deleteProfilePicture();
+
+    this.afAuth.currentUser.then((user) => {
+      this.firestoreService.deleteUser(user!.uid); // Delete the user from firestore
+      user!.delete().then(() => {
+        this.router.navigate(['']);
+      });
     });
   }
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 
 @Component({
   selector: 'app-dialog-edit-user',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogEditUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public authService: AuthService,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<DialogEditUserComponent>,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  /**
+   * Opens a dialog to confirm the deletion of the user
+   */
+  openDeleteUserDialog() {
+    this.dialog.open(DialogDeleteUserComponent);
   }
 
 }

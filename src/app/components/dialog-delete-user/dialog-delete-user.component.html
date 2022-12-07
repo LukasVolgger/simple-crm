@@ -1,0 +1,11 @@
+<div class="mat-dialog-header">
+    <i color="warn" class="material-icons">report</i>
+    <h1 mat-dialog-title>Delete User</h1>
+</div>
+<div mat-dialog-content>
+    <p>Are you sure you want to delete the current user?</p>
+</div>
+<div mat-dialog-actions>
+    <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
+    <button (click)="this.authService.deleteUser(); this.dialogRef.close()" color="warn" mat-button cdkFocusInitial>Delete</button>
+</div>
