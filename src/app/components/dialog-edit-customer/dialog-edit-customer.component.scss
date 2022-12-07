@@ -10,8 +10,16 @@ fieldset {
     gap: 16px;
 }
 
-.mat-datepicker-toggle {
-    color: unset;
+legend {
+    color: var(--primary-col);
+}
+
+mat-datepicker-toggle {
+    color: var(--primary-col) !important;
+}
+
+.mat-icon {
+    color: var(--primary-col);
 }
 
 .form-row {
