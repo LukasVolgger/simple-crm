@@ -1,10 +1,73 @@
-.login-container {
+.content {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.left-section {
+    width: 40%;
     height: 100%;
+    background: #141E30;
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);
+    background: linear-gradient(to right, #243B55, #141E30);
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    width: 60%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.login-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 32px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    .mat-icon {
+        color: #21354D;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    a {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        font-size: 12px;
+    }
+}
+
+.login-btn {
+    width: 100px;
+}
+
+.sign-up-wrapper {
+    width: 100%;
+    text-align: start;
+    font-size: 12px;
+    margin-top: -20px;
 }
 
 .google-icon {
@@ -17,13 +80,9 @@
     padding: 8px;
     white-space: break-spaces;
     background-color: #fff;
-    border: 2px solid #4285f4;
-    color: #4285f4;
+    border: 2px solid var(--primary-col);
+    color: var(--primary-col);
     &:active {
-        color: #4285f4;
+        color: #5a68b9;
     }
-}
-
-mat-form-field {
-    width: 25vw;
 }
