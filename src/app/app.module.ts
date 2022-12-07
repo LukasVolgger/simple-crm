@@ -43,6 +43,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { DialogAuthErrorsComponent } from './components/dialog-auth-errors/dialog-auth-errors.component';
 import { MainComponent } from './components/main/main.component';
 import { AccountComponent } from './components/account/account.component';
+import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AccountComponent } from './components/account/account.component';
     VerifyEmailComponent,
     DialogAuthErrorsComponent,
     MainComponent,
-    AccountComponent
+    AccountComponent,
+    DialogEditUserComponent
   ],
   imports: [
     BrowserModule,
