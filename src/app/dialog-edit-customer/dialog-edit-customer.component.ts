@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FirestoreService } from 'src/services/firestore.service';
+import { FirestoreService } from '../services/firestore.service';
+
 
 @Component({
   selector: 'app-dialog-edit-customer',

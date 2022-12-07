@@ -2,11 +2,11 @@ import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { Customer } from 'src/models/customer.class';
-import { FirestoreService } from 'src/services/firestore.service';
-import { UtilsService } from 'src/services/utils.service';
 import { DialogDeleteCustomerComponent } from '../dialog-delete-customer/dialog-delete-customer.component';
 import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit-customer.component';
+import { Customer } from '../models/customer.class';
+import { FirestoreService } from '../services/firestore.service';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-customer-detail',
