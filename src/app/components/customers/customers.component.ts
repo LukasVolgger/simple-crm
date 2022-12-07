@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
-import { FirestoreService } from '../services/firestore.service';
-import { UtilsService } from '../services/utils.service';
+
 
 @Component({
   selector: 'app-customers',

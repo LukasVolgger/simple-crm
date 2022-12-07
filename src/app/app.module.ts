@@ -22,10 +22,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 // Angular Material - END
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CustomersComponent } from './customers/customers.component';
-import { DialogAddCustomerComponent } from './dialog-add-customer/dialog-add-customer.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { DialogAddCustomerComponent } from './components/dialog-add-customer/dialog-add-customer.component';
 import { FormControl, FormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -33,16 +33,16 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
-import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-customer.component';
-import { DialogDeleteCustomerComponent } from './dialog-delete-customer/dialog-delete-customer.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { DialogAuthErrorsComponent } from './dialog-auth-errors/dialog-auth-errors.component';
-import { MainComponent } from './main/main.component';
-import { AccountComponent } from './account/account.component';
+import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
+import { DialogEditCustomerComponent } from './components/dialog-edit-customer/dialog-edit-customer.component';
+import { DialogDeleteCustomerComponent } from './components/dialog-delete-customer/dialog-delete-customer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { DialogAuthErrorsComponent } from './components/dialog-auth-errors/dialog-auth-errors.component';
+import { MainComponent } from './components/main/main.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [

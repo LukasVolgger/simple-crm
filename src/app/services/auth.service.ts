@@ -6,7 +6,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { Router } from '@angular/router';
 import { FirestoreService } from './firestore.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAuthErrorsComponent } from 'src/app/dialog-auth-errors/dialog-auth-errors.component';
+import { DialogAuthErrorsComponent } from '../components/dialog-auth-errors/dialog-auth-errors.component';
+
 @Injectable({
   providedIn: 'root',
 })
