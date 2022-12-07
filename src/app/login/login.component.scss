@@ -11,9 +11,9 @@ a {
 .left-section {
     width: 40%;
     height: 100%;
-    background: #141E30;
-    background: -webkit-linear-gradient(to right, #243B55, #141E30);
-    background: linear-gradient(to right, #243B55, #141E30);
+    background-image: url('./../../assets/img/background/architecture.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
 }
 
 .right-section {
@@ -42,7 +42,7 @@ form {
     display: flex;
     flex-direction: column;
     .mat-icon {
-        color: #21354D;
+        color: rgba(0, 0, 0, 0.8);
     }
 }
 
