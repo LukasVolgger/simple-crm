@@ -1,62 +1,42 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { User } from '../models/user.class';
-
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class FirestoreService {
-  allUsers: any;
-  allChannels: any;
-  userData: any; // Gets the data from auth service as observable
-  userDataObject: User = new User();
+export class FirestorageService {
+  downloadURL: string = '';
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(
+    private storage: AngularFireStorage,
+    private authService: AuthService) { }
 
   /**
-   * CRUD => READ
-   * 1. Gets the data from the users collection
-   * 2. Updates the local variable allUsers
+   * Loads the new profile picture into the storage
+   * Updates the profile picture in auth service
+   * @param event The img file
    */
-  getAllUsers() {
-    this.firestore
-      .collection('users')
-      .valueChanges()
-      .subscribe((changes: any) => {
-        this.allUsers = changes;
-      });
+  uploadImage(event: any) {
+    const file = event.target.files[0];
+    const filePath = this.authService.userData.uid + '_' + 'profile-picture'; // = uid_profile-picture
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    task.then(() => {
+      fileRef.getDownloadURL().subscribe((url) => {
+        this.downloadURL = url;
+        this.authService.changeProfilePicture(this.downloadURL); // Update photoURL
+      })
+    })
+
   }
 
   /**
-   * Updates the current user in the firestore
-   * Possible changes: displayName || photoURL
-   * @param uid The document id from the 'users' collection
+   * Deletes an image from the fire storage when the user changes it or deletes the profile
+   * @param downloadURL The URL of the img
    */
-  updateUser(uid: string) {
-    this.userDataObject = new User(this.userData); // Convert observable into object
-    this.firestore
-      .collection('users')
-      .doc(uid)
-      .update(this.userDataObject.userToJSON());
-  }
-
-  /**
-   * Deletes the user from the firestore based on the passed user id
-   * @param uid The document id from the 'users' collection
-   */
-  deleteUser(uid: string) {
-    this.firestore.collection('users')
-      .doc(uid)
-      .delete()
-  }
-
-  getAllChannels() {
-    this.firestore
-      .collection('channels')
-      .valueChanges()
-      .subscribe((changes: any) => {
-        this.allChannels = changes;
-      });
+  deleteImage(downloadURL: string) {
+    this.storage.refFromURL(downloadURL).delete();
   }
 }

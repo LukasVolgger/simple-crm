@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
+import { FirestorageService } from 'src/app/services/firestorage.service';
 import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 
 @Component({
@@ -12,6 +13,7 @@ export class DialogEditUserComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    public firestorageService: FirestorageService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<DialogEditUserComponent>,
   ) { }
