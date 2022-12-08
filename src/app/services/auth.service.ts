@@ -14,7 +14,6 @@ import { FirestorageService } from './firestorage.service';
 })
 export class AuthService {
   loginAsGuest: boolean = false;
-  guestDisplayName: string = '';
   userData: any; // Save logged in user data
   newDisplayName: string = '';
   authErrorIcon: string = 'info';
