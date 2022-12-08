@@ -82,14 +82,16 @@ export class AuthService {
 
   /**
    * Sign up with email/password
-   * @param email 
-   * @param password 
-   * @returns 
+   * @param displayName The name entered by the user
+   * @param email The email address entered by the user
+   * @param password The password entered by the user
+   * @returns
    */
-  signUp(email: string, password: string) {
+  signUp(displayName: string, email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        this.changeDisplayName(displayName);
         this.sendVerificationMail(); // Call the SendVerificationMail() function when new user sign up and returns promise
         this.setUserData(result.user);
       })
