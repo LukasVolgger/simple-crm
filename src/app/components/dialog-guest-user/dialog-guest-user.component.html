@@ -1,0 +1,11 @@
+<h2>Login as guest</h2>
+<p>Please enter a display name as for your guest account.</p>
+
+<form onsubmit="this.authService.guestLogin(this.guestName); this.dialogRef.close()">
+    <mat-form-field appearance="outline">
+        <mat-label>Display Name</mat-label>
+        <input [(ngModel)]="this.authService.guestDisplayName" [ngModelOptions]="{standalone: true}" type="text" matInput required>
+    </mat-form-field>
+    <br>
+    <button (click)="this.authService.guestLogin(this.authService.guestDisplayName); this.dialogRef.close()" color="primary" type="submit" mat-raised-button>Login</button>
+</form>

@@ -26,7 +26,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { DialogAddCustomerComponent } from './components/dialog-add-customer/dialog-add-customer.component';
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -45,6 +45,7 @@ import { MainComponent } from './components/main/main.component';
 import { AccountComponent } from './components/account/account.component';
 import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
 import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialog-delete-user.component';
+import { DialogGuestUserComponent } from './components/dialog-guest-user/dialog-guest-user.component';
 
 @NgModule({
   declarations: [
@@ -64,13 +65,15 @@ import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialo
     MainComponent,
     AccountComponent,
     DialogEditUserComponent,
-    DialogDeleteUserComponent
+    DialogDeleteUserComponent,
+    DialogGuestUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     // Angular Material - BEGIN
     MatToolbarModule,
     MatIconModule,

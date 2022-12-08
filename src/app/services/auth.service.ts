@@ -13,6 +13,8 @@ import { FirestorageService } from './firestorage.service';
   providedIn: 'root',
 })
 export class AuthService {
+  loginAsGuest: boolean = false;
+  guestDisplayName: string = '';
   userData: any; // Save logged in user data
   newDisplayName: string = '';
   authErrorIcon: string = 'info';
@@ -126,11 +128,27 @@ export class AuthService {
   }
 
   /**
-   * Returns true when user is logged in and email is verified
+   * Returns true when user is logged in and email is verified, or if user is a guest
    */
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    return (user !== null) && (this.checkEmailVerification() !== false) ? true : false;
+  }
+
+  /**
+   * Checks if the user is a guest, if yes no email verification is needed
+   * @returns true || false
+   */
+  checkEmailVerification() {
+    const user = JSON.parse(localStorage.getItem('user')!);
+
+    if (this.loginAsGuest) {
+      return true;
+    } else if (user.emailVerified) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -190,13 +208,33 @@ export class AuthService {
   }
 
   /**
+   * Creates an anonymous user account in Firebase Authentication and logs in the user
+   * @param guestDisplayName The name of the guest user
+   */
+  guestLogin(guestDisplayName: string) {
+    this.loginAsGuest = true;
+    this.changeDisplayName(guestDisplayName);
+
+    this.afAuth.signInAnonymously().then((result) => {
+      this.setUserData(result.user);
+
+      this.afAuth.onAuthStateChanged(() => {
+        this.router.navigate(['main']);
+      });
+
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+    })
+  }
+
+  /**
    * Log out
    * @returns
    */
   logOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['login']); // TODO reload page after logOut
     });
   }
 
@@ -239,7 +277,7 @@ export class AuthService {
     this.afAuth.currentUser.then((user) => {
       this.firestoreService.deleteUser(user!.uid); // Delete the user from firestore
       user!.delete().then(() => {
-        this.router.navigate(['']);
+        this.router.navigate(['']); // TODO reload page after delete
       });
     });
   }
