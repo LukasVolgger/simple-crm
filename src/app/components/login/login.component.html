@@ -4,22 +4,22 @@
     <div class="right-section">
         <h1>Sign in to account</h1>
         <div class="login-wrapper">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <mat-icon matSuffix>mail</mat-icon>
-                    <input autocomplete="off" type="email" matInput #userName placeholder="Email" />
+                    <input formControlName="email" autocomplete="off" type="email" matInput placeholder="Email" required>
                 </mat-form-field>
                 <div class="password-wrapper">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <mat-icon matSuffix>lock</mat-icon>
-                        <input autocomplete="off" type="password" matInput #userPassword placeholder="Password" />
+                        <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Password" required>
                     </mat-form-field>
                     <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active">Forgot Password?</a>
                 </div>
 
-                <button class="login-btn" mat-raised-button color="primary" (click)="this.authService.signIn(userName.value, userPassword.value)">Login</button>
+                <button class="login-btn" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
             </form>
             <div class="sign-up-wrapper">
                 <span>New User? </span>
