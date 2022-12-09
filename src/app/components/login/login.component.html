@@ -18,13 +18,13 @@
                         <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Password" required>
                         <mat-error *ngIf="this.loginForm.invalid">*Please enter your password</mat-error>
                     </mat-form-field>
-                    <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active">Forgot Password?</a>
+                    <a class="auth-link" [routerLink]="['/forgot-password']">Forgot Password?</a>
                 </div>
                 <button class="login-btn" type="submit" mat-raised-button color="primary">Login</button>
             </form>
             <div class="sign-up-wrapper">
                 <span>New User? </span>
-                <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active">Sign up</a>
+                <a class="auth-link" [routerLink]="['/sign-up']">Sign up</a>
             </div>
             <p>OR</p>
             <button (click)="this.authService.googleAuth()" class="google-login" mat-stroked-button>
