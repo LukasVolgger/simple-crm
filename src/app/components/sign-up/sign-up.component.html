@@ -3,17 +3,20 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
         <mat-label>Display Name</mat-label>
-        <input formControlName="displayName" type="text" placeholder="Display Name" autocomplete="off" matInput required>
+        <input formControlName="displayName" type="text" placeholder="Display Name" autocomplete="off" minlength="3" matInput required>
+        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a display name</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input formControlName="email" type="email" placeholder="Email" autocomplete="off" matInput required>
+        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a valid email address</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input formControlName="password" type="password" placeholder="Password" autocomplete="off" matInput required>
+        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a password</mat-error>
     </mat-form-field>
     <br>
     <button mat-raised-button color="primary" type="submit">Sign Up</button>
