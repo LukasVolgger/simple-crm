@@ -3,7 +3,7 @@
 <form [formGroup]="guestLoginForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
         <mat-label>Display Name</mat-label>
-        <input formControlName="displayName" type="text" matInput required>
+        <input formControlName="displayName" type="text" placeholder="Display Name" matInput required>
     </mat-form-field>
     <button color="primary" type="submit" mat-raised-button>Login</button>
 </form>
