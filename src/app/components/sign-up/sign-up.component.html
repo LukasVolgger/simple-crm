@@ -16,7 +16,7 @@
         <input formControlName="password" type="password" placeholder="Password" autocomplete="off" matInput required>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" (click)="onSubmit()">Sign Up</button>
+    <button mat-raised-button color="primary" type="submit">Sign Up</button>
     <button mat-raised-button color="secondary" (click)="authService.googleAuth()">Continue with Google</button><br>
     <a (click)="this.utils.redirectToLogin()">Already have an account?</a><br>
 </form>
