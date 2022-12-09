@@ -1,8 +1,8 @@
 <h2>Thank You for Registering</h2>
-<div class="formGroup" *ngIf="this.authService.userData as user">
-    <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-    <p class="text-center">Please check your email and click on the link to verify your email address.</p>
+<div *ngIf="this.authService.userData as user">
+    <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+    <p>Please check your email and click on the link to verify your email address.</p>
 </div>
 <button mat-raised-button color="primary" (click)="authService.sendVerificationMail()">Resend Verification Email</button><br>
 <br>
-<a (click)="this.utils.redirectToLogin()">Go back to Login</a>
+<a class="auth-link" (click)="this.utils.redirectToLogin()">Go back to Login</a>
