@@ -15,3 +15,5 @@
     <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn">Delete User</button>
     <button (click)="this.authService.changeDisplayName(this.authService.newDisplayName);this.dialogRef.close()" color="primary" mat-button cdkFocusInitial>Ok</button>
 </div>
+
+<!-- TODO Form validation and minlength for name -->

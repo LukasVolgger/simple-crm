@@ -214,10 +214,10 @@ export class AuthService {
    */
   guestLogin(guestDisplayName: string) {
     this.loginAsGuest = true;
-    this.changeDisplayName(guestDisplayName);
 
     this.afAuth.signInAnonymously().then((result) => {
       this.setUserData(result.user);
+      this.changeDisplayName(guestDisplayName);
 
       this.afAuth.onAuthStateChanged(() => {
         this.router.navigate(['main']);
@@ -235,7 +235,9 @@ export class AuthService {
   logOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['login']); // TODO reload page after logOut
+      this.router.navigate(['login']).then(() => {
+        window.location.reload();
+      });
     });
   }
 
@@ -278,7 +280,9 @@ export class AuthService {
     this.afAuth.currentUser.then((user) => {
       this.firestoreService.deleteUser(user!.uid); // Delete the user from firestore
       user!.delete().then(() => {
-        this.router.navigate(['']); // TODO reload page after delete
+        this.router.navigate(['']).then(() => {
+          window.location.reload();
+        });
       });
     });
   }
