@@ -23,7 +23,7 @@ export class DialogEditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.editUserForm = this.fb.group({
-      newDisplayName: ['', [Validators.minLength(3)]]
+      newDisplayName: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -32,7 +32,7 @@ export class DialogEditUserComponent implements OnInit {
    */
   onSubmit() {
     if (this.editUserForm.valid) {
-      this.authService.changeDisplayName(this.authService.newDisplayName);
+      this.authService.changeDisplayName(this.editUserForm.value.newDisplayName);
       this.dialogRef.close();
     }
   }

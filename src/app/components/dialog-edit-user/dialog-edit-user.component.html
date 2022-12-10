@@ -7,7 +7,7 @@
         </div>
         <mat-form-field appearance="outline">
             <mat-label>Change Display Name</mat-label>
-            <input formControlName="newDisplayName" placeholder="Change Display Name" minlength="3" matInput>
+            <input formControlName="newDisplayName" placeholder="Change Display Name" minlength="3" matInput required>
             <mat-error *ngIf="this.editUserForm.invalid">*Please enter at least 3 characters</mat-error>
         </mat-form-field>
         <input (change)="this.firestorageService.uploadImage($event); this.dialogRef.close()" #fileUpload type="file" accept=".jpg,.png" hidden>
