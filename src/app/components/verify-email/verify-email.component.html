@@ -1,8 +1,17 @@
-<h2>Thank You for Registering</h2>
-<div *ngIf="this.authService.userData as user">
-    <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-    <p>Please check your email and click on the link to verify your email address.</p>
+<div class="content fullscreen">
+    <div class="left-section"></div>
+    <div class="right-section">
+        <h2 class="auth-headline">Thank you for registering</h2>
+        <mat-card>
+            <mat-card-content>
+                <i class="material-icons">forward_to_inbox</i>
+                <div class="verify-email-content" *ngIf="this.authService.userData as user">
+                    <p>We have sent a confirmation email to <strong>{{ user.email }}</strong>.</p>
+                    <p>Please check your email inbox and click on the link to verify your email address.</p>
+                </div>
+                <button mat-raised-button color="primary" (click)="authService.sendVerificationMail()">Resend Email</button>
+                <a class="auth-link" (click)="this.utils.redirectToLogin()">Back to Login</a>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
-<button mat-raised-button color="primary" (click)="authService.sendVerificationMail()">Resend Verification Email</button><br>
-<br>
-<a class="auth-link" (click)="this.utils.redirectToLogin()">Go back to Login</a>

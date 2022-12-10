@@ -1,11 +1,5 @@
 .content {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-}
-
-a {
-    text-decoration: none;
 }
 
 .left-section {
@@ -26,10 +20,6 @@ a {
     height: 100%;
 }
 
-h1 {
-    font-size: 36px;
-}
-
 .login-wrapper {
     display: flex;
     flex-direction: column;
@@ -42,7 +32,7 @@ form {
     display: flex;
     flex-direction: column;
     .mat-icon {
-        color: rgba(0, 0, 0, 0.8);
+        color: var(--gray-col);
     }
 }
 

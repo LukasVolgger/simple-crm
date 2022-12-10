@@ -1,0 +1,43 @@
+.content {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    width: 60%;
+    height: 100%
+}
+
+.left-section {
+    width: 40%;
+    height: 100%;
+    background-image: url('./../../../assets/img/background/architecture_2.jpg');
+    background-size: cover;
+    background-position: 12% 50%;
+}
+
+.mat-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    i {
+        color: var(--gray-col);
+        font-size: 36px;
+    }
+    button {
+        width: max-content;
+    }
+}
+
+.verify-email-content {
+    text-align: center;
+}

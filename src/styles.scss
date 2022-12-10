@@ -23,6 +23,16 @@ fieldset {
     // Custom colors
     --error-col: #F7C600;
     --link-col: #2c49eb;
+    --gray-col: #363F50;
+}
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.auth-headline {
+    font-size: 36px !important;
 }
 
 .auth-link {
