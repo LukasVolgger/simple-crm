@@ -19,7 +19,7 @@ export class DialogGuestUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.guestLoginForm = this.fb.group({
-      displayName: ['', Validators.required, Validators.minLength]
+      displayName: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
