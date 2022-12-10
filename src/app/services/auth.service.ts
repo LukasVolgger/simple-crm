@@ -220,7 +220,10 @@ export class AuthService {
       this.changeDisplayName(guestDisplayName);
 
       this.afAuth.onAuthStateChanged(() => {
-        this.router.navigate(['main']);
+        setTimeout(() => {
+          this.router.navigate(['main']);
+        }, 1000);
+
       });
 
     }).catch((error) => {
