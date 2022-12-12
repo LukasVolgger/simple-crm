@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.authService.checkAlreadyLoggedIn();
+
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],

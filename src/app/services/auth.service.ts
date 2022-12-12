@@ -8,6 +8,7 @@ import { FirestoreService } from './firestore.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAuthErrorsComponent } from '../components/dialog-auth-errors/dialog-auth-errors.component';
 import { FirestorageService } from './firestorage.service';
+import { DialogAlreadyLoggedInComponent } from '../components/dialog-already-logged-in/dialog-already-logged-in.component';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +46,20 @@ export class AuthService {
     });
 
     this.firestoreService.getAllUsers();
+  }
+
+  /**
+   * Checks if the user is already logged in
+   * Displays a forwarding dialog after a short delay if the user is logged in
+   */
+  checkAlreadyLoggedIn() {
+    this.afAuth.onAuthStateChanged((user) => {
+      if (user) {
+        setTimeout(() => {
+          this.openAlreadyLoggedInDialog();
+        }, 1000);
+      }
+    });
   }
 
   /**
@@ -311,6 +326,13 @@ export class AuthService {
     if (!this.checkGoogleAccountPhotoURL() && this.userData.photoURL != null) {
       firestorageService.deleteImage(this.userData.photoURL);
     }
+  }
+
+  /**
+   * Opens the already logged in dialog
+   */
+  openAlreadyLoggedInDialog() {
+    this.dialog.open(DialogAlreadyLoggedInComponent);
   }
 
   /**
