@@ -19,6 +19,12 @@
     </tr>
 </table>
 
+<div class="no-data-wrapper" *ngIf="this.firestoreService.customers.length < 1">
+    <i class="material-icons">report</i>
+    <span>No data available yet!</span>
+    <span>Add customers to view data.</span>
+</div>
+
 <button (click)="openAddCustomerDialog()" mat-fab color="primary" class="add-customer-btn" matTooltip="Add customer">
     <mat-icon>add</mat-icon>
 </button>
