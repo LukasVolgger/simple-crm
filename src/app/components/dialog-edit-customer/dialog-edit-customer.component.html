@@ -2,44 +2,59 @@
     <mat-progress-bar *ngIf="this.firestoreService.loading" mode="indeterminate" class="dialog-progress-bar"></mat-progress-bar>
     <h1 mat-dialog-title>Edit Customer</h1>
     <div mat-dialog-content>
-        <form action="">
+        <form [formGroup]="editCustomerForm" (ngSubmit)="onSubmit()">
             <fieldset>
                 <legend>General</legend>
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>First Name</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.firstName" [disabled]="this.firestoreService.loading" name="firstName" matInput>
+                        <input formControlName="firstName" type="text" matInput>
                         <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a first name
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Last Name</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.lastName" [disabled]="this.firestoreService.loading" name="lastName" matInput>
+                        <input formControlName="lastName" type="text" matInput>
                         <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a last name
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Date of Birth</mat-label>
-                        <input [(ngModel)]="this.firestoreService.dateOfBirth" [disabled]="this.firestoreService.loading" name="dateOfBirth" matInput [matDatepicker]="picker">
+                        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a date of birth
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Phone number</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.phoneNumber" [disabled]="this.firestoreService.loading" name="phoneNumber" matInput>
+                        <input formControlName="phoneNumber" type="text" matInput>
                         <mat-icon matSuffix>call</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a phone number
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Email</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.email" [disabled]="this.firestoreService.loading" name="email" matInput>
+                        <input formControlName="email" type="email" matInput>
                         <mat-icon matSuffix>mail</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter an email address
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Website</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.website" [disabled]="this.firestoreService.loading" name="website" matInput>
+                        <input formControlName="website" type="text" matInput>
                         <mat-icon matSuffix>language</mat-icon>
-                        <mat-hint>*Optional</mat-hint>
+                        <mat-hint>* Optional</mat-hint>
                     </mat-form-field>
                 </div>
             </fieldset>
@@ -48,30 +63,43 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Street & house number</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.street" [disabled]="this.firestoreService.loading" name="street" matInput>
+                        <input formControlName="street" type="text" matInput>
                         <mat-icon matSuffix>signpost</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a street and a house number
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Zip Code</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.zipCode" [disabled]="this.firestoreService.loading" name="zipCode" matInput>
+                        <input formControlName="zipCode" type="text" matInput>
                         <mat-icon matSuffix>location_on</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a zip code
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>City</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.city" [disabled]="this.firestoreService.loading" name="city" matInput>
+                        <input formControlName="city" type="text" matInput>
                         <mat-icon matSuffix>location_city</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a city
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Country</mat-label>
-                        <input [(ngModel)]="this.firestoreService.customerToEdit.country" [disabled]="this.firestoreService.loading" name="country" matInput>
+                        <input formControlName="country" type="text" matInput>
                         <mat-icon matSuffix>flag</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a street and a country
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </fieldset>
+            <div mat-dialog-actions>
+                <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
+                <button type="submit" color="primary" mat-button cdkFocusInitial>Save</button>
+            </div>
         </form>
     </div>
-    <div mat-dialog-actions>
-        <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-        <button (click)="editCustomer()" color="primary" mat-button cdkFocusInitial>Save</button>
-    </div>
+
 </div>
