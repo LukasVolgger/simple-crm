@@ -15,11 +15,19 @@ legend {
 }
 
 mat-datepicker-toggle {
-    color: var(--primary-col) !important;
+    color: var(--gray-col) !important;
 }
 
 .mat-icon {
-    color: var(--primary-col);
+    color: var(--gray-col);
+}
+
+.mat-datepicker-toggle {
+    color: unset;
+}
+
+.mat-dialog-content {
+    overflow: unset;
 }
 
 .form-row {
