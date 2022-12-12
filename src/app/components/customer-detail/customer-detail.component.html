@@ -79,6 +79,9 @@
     </mat-card>
 
     <div class="customer-actions">
+        <button (click)="this.utils.redirectToCustomers()" color="basic" mat-mini-fab title="Back">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
         <button (click)="openEditCustomerDialog()" color="primary" mat-raised-button title="Edit">Edit</button>
         <button (click)="openDeleteCustomerDialog()" color="warn" mat-raised-button title="Delete">Delete</button>
     </div>

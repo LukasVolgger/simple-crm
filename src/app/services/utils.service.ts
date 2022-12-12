@@ -32,6 +32,13 @@ export class UtilsService {
   }
 
   /**
+   * Redirects to the customers page
+   */
+  redirectToCustomers() {
+    this.router.navigate(['main/customers']);
+  }
+
+  /**
    * Converts a date to a unix timestamp
    * @param date The date object from the date picker
    * @returns Unix timestamp
