@@ -228,7 +228,7 @@ export class AuthService {
 
     }).catch((error) => {
       this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
-    })
+    });
   }
 
   /**
@@ -256,7 +256,7 @@ export class AuthService {
         this.firestoreService.userData = this.userData;
         this.firestoreService.updateUser(user!.uid);
       })
-    })
+    });
   }
 
   /**
@@ -270,8 +270,8 @@ export class AuthService {
       }).then(() => {
         this.firestoreService.userData = this.userData;
         this.firestoreService.updateUser(user!.uid);
-      })
-    })
+      });
+    });
   }
 
   /**

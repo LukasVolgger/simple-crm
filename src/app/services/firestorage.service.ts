@@ -27,8 +27,8 @@ export class FirestorageService {
       fileRef.getDownloadURL().subscribe((url) => {
         this.downloadURL = url;
         this.authService.changeProfilePicture(this.downloadURL); // Update photoURL
-      })
-    })
+      });
+    });
 
   }
 

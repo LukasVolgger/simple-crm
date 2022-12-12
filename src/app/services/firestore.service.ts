@@ -39,7 +39,7 @@ export class FirestoreService {
       .then((result) => {
         this.loading = false;
         console.log(result);
-      })
+      });
 
     this.customerToAdd = new Customer(); // Clear ngModel in template form
   }
@@ -76,7 +76,7 @@ export class FirestoreService {
       .then((result) => {
         this.loading = false;
         console.log(result);
-      })
+      });
   }
 
   /**
@@ -94,7 +94,7 @@ export class FirestoreService {
       .then((result) => {
         this.loading = false;
         console.log(result);
-      })
+      });
   }
 
   /**
@@ -145,6 +145,6 @@ export class FirestoreService {
   deleteUser(uid: string) {
     this.firestore.collection('users')
       .doc(uid)
-      .delete()
+      .delete();
   }
 }
