@@ -45,7 +45,7 @@ export class DialogAddCustomerComponent implements OnInit {
       this.firestoreService.customerToAdd.dateOfBirth = this.utils.getUnixTimestamp(this.addCustomerForm.value.dateOfBirth);
       this.firestoreService.customerToAdd.phoneNumber = this.addCustomerForm.value.phoneNumber;
       this.firestoreService.customerToAdd.email = this.addCustomerForm.value.email;
-      this.firestoreService.customerToAdd.website = this.addCustomerForm.value.website || 'No website';
+      this.firestoreService.customerToAdd.website = this.addCustomerForm.value.website || '-';
       this.firestoreService.customerToAdd.street = this.addCustomerForm.value.street;
       this.firestoreService.customerToAdd.zipCode = this.addCustomerForm.value.zipCode;
       this.firestoreService.customerToAdd.city = this.addCustomerForm.value.city;

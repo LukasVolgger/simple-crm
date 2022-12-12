@@ -47,7 +47,7 @@ export class DialogEditCustomerComponent implements OnInit {
       this.firestoreService.customerToEdit.dateOfBirth = this.utils.getUnixTimestamp(this.editCustomerForm.value.dateOfBirth);
       this.firestoreService.customerToEdit.phoneNumber = this.editCustomerForm.value.phoneNumber;
       this.firestoreService.customerToEdit.email = this.editCustomerForm.value.email;
-      this.firestoreService.customerToEdit.website = this.editCustomerForm.value.website || 'No website';
+      this.firestoreService.customerToEdit.website = this.editCustomerForm.value.website || '-';
       this.firestoreService.customerToEdit.street = this.editCustomerForm.value.street;
       this.firestoreService.customerToEdit.zipCode = this.editCustomerForm.value.zipCode;
       this.firestoreService.customerToEdit.city = this.editCustomerForm.value.city;
