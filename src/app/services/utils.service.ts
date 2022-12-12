@@ -40,4 +40,14 @@ export class UtilsService {
     let timestamp = new Date(date).getTime();
     return timestamp;
   }
+
+  /**
+   * Converts a unix timestamp into a date object
+   * @param timestamp Unix timestamp
+   * @returns Date object
+   */
+  getDateFromTimestamp(timestamp: number) {
+    let date = new Date(timestamp);
+    return date;
+  }
 }

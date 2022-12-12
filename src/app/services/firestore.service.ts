@@ -108,7 +108,7 @@ export class FirestoreService {
       .valueChanges()
       .subscribe((changes: any) => {
         this.currentCustomer = new Customer(changes);
-      })
+      });
   }
 
   /**

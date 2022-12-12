@@ -8,7 +8,7 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>First Name</mat-label>
-                        <input formControlName="firstName" type="text" matInput>
+                        <input formControlName="firstName" type="text" matInput required>
                         <mat-icon matSuffix>person</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a first name
@@ -16,7 +16,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Last Name</mat-label>
-                        <input formControlName="lastName" type="text" matInput>
+                        <input formControlName="lastName" type="text" matInput required>
                         <mat-icon matSuffix>person</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a last name
@@ -24,7 +24,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Date of Birth</mat-label>
-                        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
+                        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" required>
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
@@ -36,7 +36,7 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Phone number</mat-label>
-                        <input formControlName="phoneNumber" type="text" matInput>
+                        <input formControlName="phoneNumber" type="text" matInput required>
                         <mat-icon matSuffix>call</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a phone number
@@ -44,7 +44,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Email</mat-label>
-                        <input formControlName="email" type="email" matInput>
+                        <input formControlName="email" type="email" matInput required>
                         <mat-icon matSuffix>mail</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter an email address
@@ -52,7 +52,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Website</mat-label>
-                        <input formControlName="website" type="text" matInput>
+                        <input formControlName="website" type="text" matInput required>
                         <mat-icon matSuffix>language</mat-icon>
                         <mat-hint>* Optional</mat-hint>
                     </mat-form-field>
@@ -63,7 +63,7 @@
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>Street & house number</mat-label>
-                        <input formControlName="street" type="text" matInput>
+                        <input formControlName="street" type="text" matInput required>
                         <mat-icon matSuffix>signpost</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a street and a house number
@@ -71,7 +71,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Zip Code</mat-label>
-                        <input formControlName="zipCode" type="text" matInput>
+                        <input formControlName="zipCode" type="text" matInput required>
                         <mat-icon matSuffix>location_on</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a zip code
@@ -79,7 +79,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>City</mat-label>
-                        <input formControlName="city" type="text" matInput>
+                        <input formControlName="city" type="text" matInput required>
                         <mat-icon matSuffix>location_city</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a city
@@ -87,7 +87,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Country</mat-label>
-                        <input formControlName="country" type="text" matInput>
+                        <input formControlName="country" type="text" matInput required>
                         <mat-icon matSuffix>flag</mat-icon>
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a street and a country

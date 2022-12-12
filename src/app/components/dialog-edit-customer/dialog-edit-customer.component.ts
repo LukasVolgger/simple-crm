@@ -26,7 +26,7 @@ export class DialogEditCustomerComponent implements OnInit {
     this.editCustomerForm = this.fb.group({
       firstName: [this.firestoreService.currentCustomer.firstName, Validators.required],
       lastName: [this.firestoreService.currentCustomer.lastName, Validators.required],
-      dateOfBirth: [this.firestoreService.currentCustomer.dateOfBirth, Validators.required],
+      dateOfBirth: [this.utils.getDateFromTimestamp(this.firestoreService.currentCustomer.dateOfBirth), Validators.required],
       phoneNumber: [this.firestoreService.currentCustomer.phoneNumber, Validators.required],
       email: [this.firestoreService.currentCustomer.email, [Validators.required, Validators.email]],
       website: [this.firestoreService.currentCustomer.website],
