@@ -19,7 +19,7 @@
         <mat-error *ngIf="this.signUpForm.invalid">*Please enter a password</mat-error>
     </mat-form-field>
     <br>
-    <button mat-raised-button color="primary" type="submit">Sign Up</button>
-    <button mat-raised-button color="secondary" (click)="authService.googleAuth()">Continue with Google</button><br>
-    <a class="auth-link" (click)="this.utils.redirectToLogin()">Already have an account?</a><br>
+    <button mat-raised-button color="primary" type="submit" title="Sign Up">Sign Up</button>
+    <button mat-raised-button color="secondary" (click)="authService.googleAuth()" title="Sign Up with Google">Sign Up with Google</button><br>
+    <a class="auth-link" (click)="this.utils.redirectToLogin()" title="Already have an account?">Already have an account?</a><br>
 </form>

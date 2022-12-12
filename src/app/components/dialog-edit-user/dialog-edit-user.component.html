@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Edit Profile</h1>
 <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
     <div mat-dialog-content *ngIf="authService.userData as user">
-        <div (click)="fileUpload.click()" class="profile-picture-wrapper">
+        <div (click)="fileUpload.click()" class="profile-picture-wrapper" title="Upload new profile picture">
             <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../assets/img/blank_profile_picture.svg' }}" alt="{{ user.displayName }}" />
-            <i class="material-icons">edit</i>
+            <i class="material-icons">upload</i>
         </div>
         <mat-form-field appearance="outline">
             <mat-label>Change Display Name</mat-label>
@@ -13,8 +13,8 @@
         <input (change)="this.firestorageService.uploadImage($event); this.dialogRef.close()" #fileUpload type="file" accept=".jpg,.png" hidden>
     </div>
     <div mat-dialog-actions>
-        <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn">Delete User</button>
-        <button type="submit" color="primary" mat-button cdkFocusInitial>Ok</button>
+        <button (click)="this.dialogRef.close()" mat-button title="Cancel">Cancel</button>
+        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn" title="Delete User">Delete User</button>
+        <button type="submit" color="primary" mat-button cdkFocusInitial title="Ok">Ok</button>
     </div>
 </form>

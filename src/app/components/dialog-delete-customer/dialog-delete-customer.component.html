@@ -5,7 +5,7 @@
         <p>Are you sure you wan't to delete this customer?</p>
     </div>
     <div mat-dialog-actions>
-        <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-        <button (click)="this.deleteCustomer()" color="warn" mat-button cdkFocusInitial>Delete</button>
+        <button (click)="this.dialogRef.close()" mat-button title="Cancel">Cancel</button>
+        <button (click)="this.deleteCustomer()" color="warn" mat-button cdkFocusInitial title="Delete">Delete</button>
     </div>
 </div>

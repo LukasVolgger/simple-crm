@@ -6,6 +6,6 @@
     <p>Are you sure you want to delete the current user?</p>
 </div>
 <div mat-dialog-actions>
-    <button (click)="this.dialogRef.close()" mat-button>Cancel</button>
-    <button (click)="this.authService.deleteUser(); this.dialogRef.close()" color="warn" mat-button cdkFocusInitial>Delete</button>
+    <button (click)="this.dialogRef.close()" mat-button title="Cancel">Cancel</button>
+    <button (click)="this.authService.deleteUser(); this.dialogRef.close()" color="warn" mat-button cdkFocusInitial title="Delete">Delete</button>
 </div>

@@ -18,20 +18,20 @@
                         <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Password" required>
                         <mat-error *ngIf="this.loginForm.invalid">*Please enter your password</mat-error>
                     </mat-form-field>
-                    <a class="auth-link" [routerLink]="['/forgot-password']">Forgot Password?</a>
+                    <a class="auth-link" [routerLink]="['/forgot-password']" title="Forgot Password?">Forgot Password?</a>
                 </div>
-                <button class="login-btn" type="submit" mat-raised-button color="primary">Login</button>
+                <button class="login-btn" type="submit" mat-raised-button color="primary" title="Login">Login</button>
             </form>
             <div class="sign-up-wrapper">
                 <span>New User? </span>
-                <a class="auth-link" [routerLink]="['/sign-up']">Sign up</a>
+                <a class="auth-link" [routerLink]="['/sign-up']" title="Sign Up">Sign Up</a>
             </div>
             <p>OR</p>
-            <button (click)="this.authService.googleAuth()" class="google-login" mat-stroked-button>
+            <button (click)="this.authService.googleAuth()" class="google-login" mat-stroked-button title="Login with Google Account">
                 <img class="google-icon" src="./../../assets/img/icons/google.svg" alt="Google Logo Icon"/>
                 <span>Login with Google Account</span>
             </button>
-            <button mat-raised-button (click)="this.openGuestUserDialog()">Login as guest</button>
+            <button mat-raised-button (click)="this.openGuestUserDialog()" title="Login as guest">Login as guest</button>
         </div>
     </div>
 </div>

@@ -5,21 +5,21 @@
         </div>
         <mat-nav-list>
             <mat-list-item role="listitem">
-                <a routerLink="dashboard">
+                <a routerLink="dashboard" title="Dashboard">
                     <mat-icon color="primary">dashboard</mat-icon>
                     <span>Dashboard</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
-                <a routerLink="customers">
+                <a routerLink="customers" title="Customers">
                     <mat-icon color="primary">person</mat-icon>
                     <span>Customers</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
-                <a (click)="this.authService.logOut()">
+                <a (click)="this.authService.logOut()" title="Log Out">
                     <mat-icon color="primary">logout</mat-icon>
-                    <span>Logout</span>
+                    <span>Log Out</span>
                 </a>
             </mat-list-item>
         </mat-nav-list>
@@ -27,14 +27,14 @@
     <div class="example-sidenav-content">
         <mat-toolbar color="primary">
             <div class="toolbar-left">
-                <button type="button" mat-button (click)="drawer.toggle()">
+                <button type="button" mat-button (click)="drawer.toggle()" title="Toggle Menu">
                     <mat-icon>menu</mat-icon>
                 </button>
                 <span>Simple CRM</span>
             </div>
             <div class="toolbar-right" *ngIf="authService.userData as user">
                 <span>{{ user.displayName }}</span>
-                <a routerLink="account">
+                <a routerLink="account" title="Account">
                     <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../../assets/img/blank_profile_picture.svg' }}" alt="{{ user.displayName }}" />
                 </a>
             </div>

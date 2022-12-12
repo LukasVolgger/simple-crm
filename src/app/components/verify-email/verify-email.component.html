@@ -9,7 +9,7 @@
                     <p>We have sent a confirmation email to <strong>{{ user.email }}</strong>.</p>
                     <p>Please check your email inbox and click on the link to verify your email address.</p>
                 </div>
-                <button mat-raised-button color="primary" (click)="authService.sendVerificationMail()">Resend Email</button>
+                <button mat-raised-button color="primary" (click)="authService.sendVerificationMail()" title="Resend Email">Resend Email</button>
                 <a class="auth-link" (click)="this.utils.redirectToLogin()">Back to Login</a>
             </mat-card-content>
         </mat-card>
