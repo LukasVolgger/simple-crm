@@ -32,7 +32,6 @@ export class FirestoreService {
    */
   addCustomer() {
     this.loading = true;
-    this.customerToAdd.dateOfBirth = this.dateOfBirth.getTime();
 
     this.firestore
       .collection('customers')

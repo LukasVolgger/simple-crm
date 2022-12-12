@@ -30,4 +30,14 @@ export class UtilsService {
       window.location.reload();
     });
   }
+
+  /**
+   * Converts a date to a unix timestamp
+   * @param date The date object from the date picker
+   * @returns Unix timestamp
+   */
+  getUnixTimestamp(date: Date) {
+    let timestamp = new Date(date).getTime();
+    return timestamp;
+  }
 }
