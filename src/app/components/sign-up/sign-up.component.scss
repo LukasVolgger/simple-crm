@@ -1,0 +1,62 @@
+.content {
+    display: flex;
+}
+
+.left-section {
+    width: 40%;
+    height: 100%;
+    background-image: url('./../../../assets/img/background/architecture_3.jpg');
+    background-position: 75% 50%;
+    background-size: cover;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    width: 60%;
+    height: 100%;
+}
+
+.sign-up-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.login-wrapper {
+    width: 100%;
+    text-align: start;
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+.google-icon {
+    width: 24px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.google-login {
+    padding: 8px;
+    white-space: break-spaces;
+    background-color: #fff;
+    border: 2px solid var(--primary-col);
+    color: var(--primary-col);
+    &:active {
+        color: #5a68b9;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: max-content;
+}

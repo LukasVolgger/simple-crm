@@ -1,25 +1,36 @@
-<h2>Sign Up</h2>
+<div class="content fullscreen">
+    <div class="left-section"></div>
 
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="outline">
-        <mat-label>Display Name</mat-label>
-        <input formControlName="displayName" type="text" placeholder="Display Name" autocomplete="off" minlength="3" matInput required>
-        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a display name</mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input formControlName="email" type="email" placeholder="Email" autocomplete="off" matInput required>
-        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a valid email address</mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input formControlName="password" type="password" placeholder="Password" autocomplete="off" matInput required>
-        <mat-error *ngIf="this.signUpForm.invalid">*Please enter a password</mat-error>
-    </mat-form-field>
-    <br>
-    <button mat-raised-button color="primary" type="submit" title="Sign Up">Sign Up</button>
-    <button mat-raised-button color="secondary" (click)="authService.googleAuth()" title="Sign Up with Google">Sign Up with Google</button><br>
-    <a class="auth-link" (click)="this.utils.redirectToLogin()" title="Already have an account?">Already have an account?</a><br>
-</form>
+    <div class="right-section">
+        <h2 class="auth-headline">Sign Up</h2>
+        <div class="sign-up-wrapper">
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Display Name</mat-label>
+                    <input formControlName="displayName" type="text" placeholder="Display Name" autocomplete="off" minlength="3" matInput required>
+                    <mat-error *ngIf="this.signUpForm.invalid">*Please enter a display name</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" type="email" placeholder="Email" autocomplete="off" matInput required>
+                    <mat-error *ngIf="this.signUpForm.invalid">*Please enter a valid email address</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" type="password" placeholder="Password" autocomplete="off" matInput required>
+                    <mat-error *ngIf="this.signUpForm.invalid">*Please enter a password</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" title="Sign Up">Sign Up</button>
+            </form>
+            <div class="login-wrapper">
+                <span>Already have an account? </span>
+                <a class="auth-link" (click)="this.utils.redirectToLogin()" title="Already have an account?">Login</a>
+            </div>
+            <p>OR</p>
+            <button class="google-login" mat-stroked-button color="secondary" (click)="authService.googleAuth()" title="Sign Up with Google">
+            <img class="google-icon" src="./../../assets/img/icons/google.svg" alt="Google Logo Icon"/>
+            <span>Sign Up with Google</span>
+        </button>
+        </div>
+    </div>
+</div>
