@@ -18,7 +18,7 @@
                         <input formControlName="password" autocomplete="off" type="password" matInput placeholder="Password" required>
                         <mat-error *ngIf="this.loginForm.invalid">*Please enter your password</mat-error>
                     </mat-form-field>
-                    <a class="auth-link" [routerLink]="['/forgot-password']" title="Forgot Password?">Forgot Password?</a>
+                    <a class="auth-link" (click)="openForgotPasswordDialog()" title="Forgot Password?">Forgot Password?</a>
                 </div>
                 <button class="login-btn" type="submit" mat-raised-button color="primary" title="Login">Login</button>
             </form>

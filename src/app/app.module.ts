@@ -38,7 +38,6 @@ import { DialogEditCustomerComponent } from './components/dialog-edit-customer/d
 import { DialogDeleteCustomerComponent } from './components/dialog-delete-customer/dialog-delete-customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { DialogAuthErrorsComponent } from './components/dialog-auth-errors/dialog-auth-errors.component';
 import { MainComponent } from './components/main/main.component';
@@ -47,6 +46,7 @@ import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-ed
 import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialog-delete-user.component';
 import { DialogGuestUserComponent } from './components/dialog-guest-user/dialog-guest-user.component';
 import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logged-in/dialog-already-logged-in.component';
+import { DialogForgotPasswordComponent } from './components/dialog-forgot-password/dialog-forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,6 @@ import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logg
     DialogDeleteCustomerComponent,
     LoginComponent,
     SignUpComponent,
-    ForgotPasswordComponent,
     VerifyEmailComponent,
     DialogAuthErrorsComponent,
     MainComponent,
@@ -68,7 +67,8 @@ import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logg
     DialogEditUserComponent,
     DialogDeleteUserComponent,
     DialogGuestUserComponent,
-    DialogAlreadyLoggedInComponent
+    DialogAlreadyLoggedInComponent,
+    DialogForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
+import { DialogForgotPasswordComponent } from '../dialog-forgot-password/dialog-forgot-password.component';
 import { DialogGuestUserComponent } from '../dialog-guest-user/dialog-guest-user.component';
 
 
@@ -35,6 +36,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.authService.signIn(this.loginForm.value.email, this.loginForm.value.password);
     }
+  }
+
+  /**
+   * Opens the forgot password dialog
+   */
+  openForgotPasswordDialog() {
+    this.dialog.open(DialogForgotPasswordComponent);
   }
 
   /**

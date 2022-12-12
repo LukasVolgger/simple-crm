@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 
-
-
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  selector: 'app-dialog-forgot-password',
+  templateUrl: './dialog-forgot-password.component.html',
+  styleUrls: ['./dialog-forgot-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class DialogForgotPasswordComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
 
   constructor(
-    public authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
+    public dialogRef: MatDialogRef<DialogForgotPasswordComponent>
   ) { }
 
   ngOnInit(): void {
