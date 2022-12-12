@@ -2,7 +2,7 @@
 <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
     <div mat-dialog-content *ngIf="authService.userData as user">
         <div (click)="fileUpload.click()" class="profile-picture-wrapper">
-            <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../assets/img/blank_user.svg' }}" alt="{{ user.displayName }}" />
+            <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../assets/img/blank_profile_picture.svg' }}" alt="{{ user.displayName }}" />
             <i class="material-icons">edit</i>
         </div>
         <mat-form-field appearance="outline">

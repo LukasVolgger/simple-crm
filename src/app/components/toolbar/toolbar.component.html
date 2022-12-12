@@ -35,7 +35,7 @@
             <div class="toolbar-right" *ngIf="authService.userData as user">
                 <span>{{ user.displayName }}</span>
                 <a routerLink="account">
-                    <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../../assets/img/blank_user.svg' }}" alt="{{ user.displayName }}" />
+                    <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../../assets/img/blank_profile_picture.svg' }}" alt="{{ user.displayName }}" />
                 </a>
             </div>
 

@@ -1,6 +1,6 @@
 <mat-card *ngIf="authService.userData as user">
     <mat-card-header>
-        <img class="profile-picture" src="{{(user.photoURL) ? user.photoURL : './../../../assets/img/blank_user.svg'}}" alt="{{user.displayName}}">
+        <img class="profile-picture" src="{{(user.photoURL) ? user.photoURL : './../../../assets/img/blank_profile_picture.svg'}}" alt="{{user.displayName}}">
         <h1>Welcome <strong>{{(user.displayName) ? user.displayName : 'User'}}!</strong></h1>
     </mat-card-header>
 
