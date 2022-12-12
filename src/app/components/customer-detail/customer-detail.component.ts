@@ -42,20 +42,16 @@ export class CustomerDetailComponent implements OnInit {
 
   /**
    * Opens the edit customer dialog
-   * @param customerId The unique document id from firestore
    */
-  openEditCustomerDialog(customerId: string) {
-    console.log('Edit customer:', customerId);
+  openEditCustomerDialog() {
     this.dialog.open(DialogEditCustomerComponent);
     this.firestoreService.customerToEdit = new Customer(this.firestoreService.currentCustomer.customerToJSON());
   }
 
   /**
    * Opens the customer delete dialog
-   * @param customerId The unique document id from firestore
    */
-  openDeleteCustomerDialog(customerId: string) {
-    console.log('Delete customer:', customerId);
+  openDeleteCustomerDialog() {
     this.dialog.open(DialogDeleteCustomerComponent);
   }
 

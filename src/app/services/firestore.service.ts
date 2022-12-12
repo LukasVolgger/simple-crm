@@ -36,9 +36,8 @@ export class FirestoreService {
     this.firestore
       .collection('customers')
       .add(this.customerToAdd.customerToJSON())
-      .then((result) => {
+      .then(() => {
         this.loading = false;
-        console.log(result);
       });
 
     this.customerToAdd = new Customer(); // Clear ngModel in template form
@@ -50,9 +49,6 @@ export class FirestoreService {
    * 2. Updates the local variable customers
    */
   getAllCustomers() {
-    // this.loading = true; 
-    // TODO Activate loading while fetching data
-
     this.firestore
       .collection('customers')
       .valueChanges({ idField: 'customerId' })
@@ -73,9 +69,8 @@ export class FirestoreService {
       .collection('customers')
       .doc(customerId)
       .update(this.customerToEdit.customerToJSON())
-      .then((result) => {
+      .then(() => {
         this.loading = false;
-        console.log(result);
       });
   }
 
@@ -91,9 +86,8 @@ export class FirestoreService {
       .collection('customers')
       .doc(customerId)
       .delete()
-      .then((result) => {
+      .then(() => {
         this.loading = false;
-        console.log(result);
       });
   }
 
