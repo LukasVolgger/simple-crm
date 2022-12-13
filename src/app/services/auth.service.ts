@@ -55,7 +55,7 @@ export class AuthService {
    */
   checkAlreadyLoggedIn() {
     this.afAuth.onAuthStateChanged((user) => {
-      if (user && !user.isAnonymous && !this.authProcessing) {
+      if (user && user.emailVerified && !user.isAnonymous && !this.authProcessing) {
         setTimeout(() => {
           this.openAlreadyLoggedInDialog();
         }, 1000);
@@ -374,4 +374,7 @@ export class AuthService {
 
     this.openAuthErrorDialog();
   }
+
+  // FIXME emailVerified in firestore is always false
+  // TODO implement deleteOlderGuestUsers() method
 }
