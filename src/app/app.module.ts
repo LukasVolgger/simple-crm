@@ -21,6 +21,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // Angular Material - END
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -93,6 +94,7 @@ import { DialogForgotPasswordComponent } from './components/dialog-forgot-passwo
     MatTableModule,
     MatCardModule,
     MatMenuModule,
+    MatPaginatorModule,
     // Angular Material - END
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
