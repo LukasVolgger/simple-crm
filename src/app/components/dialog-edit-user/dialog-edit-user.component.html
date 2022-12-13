@@ -1,6 +1,6 @@
 <div class="mat-dialog-header">
     <i class="material-icons">edit</i>
-    <h1 mat-dialog-title>Edit Profile</h1>
+    <h1 mat-dialog-title>Edit User</h1>
 </div>
 
 <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
@@ -18,7 +18,7 @@
     </div>
     <div mat-dialog-actions>
         <button (click)="this.dialogRef.close()" mat-button title="Cancel">Cancel</button>
-        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn" title="Delete Profile">Delete Profile</button>
+        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn" title="Delete User">Delete User</button>
         <button type="submit" color="primary" mat-button cdkFocusInitial title="Ok">Ok</button>
     </div>
 </form>
