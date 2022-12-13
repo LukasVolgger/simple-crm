@@ -18,8 +18,8 @@ export class AccountComponent implements OnInit {
   }
 
   /**
- * Opens a dialog to edit the user
- */
+   * Opens a dialog to edit the user
+   */
   openEditUserDialog() {
     this.dialog.open(DialogEditUserComponent);
   }

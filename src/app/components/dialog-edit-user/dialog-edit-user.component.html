@@ -1,4 +1,8 @@
-<h1 mat-dialog-title>Edit Profile</h1>
+<div class="mat-dialog-header">
+    <i class="material-icons">edit</i>
+    <h1 mat-dialog-title>Edit Profile</h1>
+</div>
+
 <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
     <div mat-dialog-content *ngIf="authService.userData as user">
         <div (click)="fileUpload.click()" class="profile-picture-wrapper" title="Upload new profile picture">
@@ -14,7 +18,7 @@
     </div>
     <div mat-dialog-actions>
         <button (click)="this.dialogRef.close()" mat-button title="Cancel">Cancel</button>
-        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn" title="Delete User">Delete User</button>
+        <button (click)="this.openDeleteUserDialog(); this.dialogRef.close()" mat-button color="warn" title="Delete Profile">Delete Profile</button>
         <button type="submit" color="primary" mat-button cdkFocusInitial title="Ok">Ok</button>
     </div>
 </form>

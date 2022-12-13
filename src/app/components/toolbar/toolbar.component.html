@@ -34,9 +34,22 @@
             </div>
             <div class="toolbar-right" *ngIf="authService.userData as user">
                 <span>{{ user.displayName }}</span>
-                <a routerLink="account" title="Account">
+                <button mat-button [matMenuTriggerFor]="menu" title="User profile">
                     <img class="profile-picture" src="{{ user.photoURL? user.photoURL : './../../../../assets/img/blank_profile_picture.svg' }}" alt="{{ user.displayName }}" />
-                </a>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button (click)="this.openUserDetailsDialog()" mat-menu-item>
+                        <mat-icon>person</mat-icon>
+                        <span>Show User Details</span>
+                    </button>
+                    <button (click)="this.openEditUserDialog()" mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit Profile</span></button>
+                    <button (click)="this.authService.logOut()" mat-menu-item>
+                        <mat-icon>logout</mat-icon>
+                        <span>Log Out</span>
+                    </button>
+                </mat-menu>
             </div>
 
         </mat-toolbar>

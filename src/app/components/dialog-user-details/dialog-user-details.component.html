@@ -1,0 +1,26 @@
+<div class="mat-dialog-header">
+    <i class="material-icons">person</i>
+    <h1 mat-dialog-title>User Details</h1>
+</div>
+
+<div class="details-wrapper" *ngIf="authService.userData as user">
+    <div class="data-row">
+        <strong>User ID: </strong>
+        <span>{{user.uid}}</span>
+    </div>
+    <div class="data-row">
+        <strong>Display Name: </strong>
+        <span>{{user.displayName}}</span>
+    </div>
+    <div class="data-row">
+        <strong>Email: </strong>
+        <span>{{user.email ? user.email : '-'}}</span>
+    </div>
+    <div class="data-row">
+        <strong>Email Verified: </strong>
+        <span>{{user.emailVerified}}</span>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button (click)="this.dialogRef.close()" color="primary" mat-button cdkFocusInitial title="Close">Close</button>
+</div>

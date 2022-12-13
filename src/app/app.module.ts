@@ -49,6 +49,7 @@ import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialo
 import { DialogGuestUserComponent } from './components/dialog-guest-user/dialog-guest-user.component';
 import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logged-in/dialog-already-logged-in.component';
 import { DialogForgotPasswordComponent } from './components/dialog-forgot-password/dialog-forgot-password.component';
+import { DialogUserDetailsComponent } from './components/dialog-user-details/dialog-user-details.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DialogForgotPasswordComponent } from './components/dialog-forgot-passwo
     DialogDeleteUserComponent,
     DialogGuestUserComponent,
     DialogAlreadyLoggedInComponent,
-    DialogForgotPasswordComponent
+    DialogForgotPasswordComponent,
+    DialogUserDetailsComponent
   ],
   imports: [
     BrowserModule,
