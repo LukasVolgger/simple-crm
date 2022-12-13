@@ -29,6 +29,7 @@ export class CustomersComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.firestoreService.customers);
     this.dataSource.paginator = this.paginator;
+    console.log('Customers from Service: ', this.firestoreService.customers);
     console.log('Table Data Source: ', this.dataSource);
     // FIXME The table is empty after refreshing the page
     // TODO Update dataSource after adding, update and delete customers
