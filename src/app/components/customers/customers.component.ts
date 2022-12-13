@@ -5,6 +5,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -25,6 +26,7 @@ export class CustomersComponent implements OnInit {
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
     this.updateTableData();
@@ -39,6 +41,7 @@ export class CustomersComponent implements OnInit {
     this.firestoreService.customersDataSource.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort
     });
   }
 

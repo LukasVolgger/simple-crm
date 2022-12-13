@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 // Angular Material - END
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -95,6 +96,7 @@ import { DialogForgotPasswordComponent } from './components/dialog-forgot-passwo
     MatCardModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatSortModule,
     // Angular Material - END
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
