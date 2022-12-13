@@ -4,13 +4,15 @@ export class User {
     displayName: string;
     photoURL: string;
     emailVerified: boolean;
+    createdAt: number;
 
-    constructor(obj?: any) {
+    constructor(obj: any) {
         this.uid = obj ? obj.uid : '';
         this.email = obj ? obj.email : '';
         this.displayName = obj ? obj.displayName : '';
         this.photoURL = obj ? obj.photoURL : '';
         this.emailVerified = obj ? obj.emailVerified : '';
+        this.createdAt = obj ? obj.metadata.createdAt : '';
     }
 
     /**
@@ -24,6 +26,7 @@ export class User {
             displayName: this.displayName,
             photoURL: this.photoURL,
             emailVerified: this.emailVerified,
+            createdAt: this.createdAt,
         }
     }
 }

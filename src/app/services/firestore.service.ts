@@ -18,7 +18,7 @@ export class FirestoreService {
 
   allUsers: any;
   userData: any; // Gets the data from auth service
-  userDataObject: User = new User();
+  userDataObject!: User;
 
   loading: boolean = false;
 

@@ -230,6 +230,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      createdAt: user.metadata.createdAt
     };
 
     return userRef.set(userData, {
