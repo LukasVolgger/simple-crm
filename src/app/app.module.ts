@@ -43,7 +43,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { DialogAuthErrorsComponent } from './components/dialog-auth-errors/dialog-auth-errors.component';
 import { MainComponent } from './components/main/main.component';
-import { AccountComponent } from './components/account/account.component';
 import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
 import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialog-delete-user.component';
 import { DialogGuestUserComponent } from './components/dialog-guest-user/dialog-guest-user.component';
@@ -66,7 +65,6 @@ import { DialogUserDetailsComponent } from './components/dialog-user-details/dia
     VerifyEmailComponent,
     DialogAuthErrorsComponent,
     MainComponent,
-    AccountComponent,
     DialogEditUserComponent,
     DialogDeleteUserComponent,
     DialogGuestUserComponent,

@@ -8,7 +8,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { MainComponent } from './components/main/main.component';
 import { AuthGuard } from './guards/auth.guard';
-import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,7 +18,6 @@ const routes: Routes = [
     path: 'main',
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'account', component: AccountComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'customers/:customerId', component: CustomerDetailComponent }
     ],
