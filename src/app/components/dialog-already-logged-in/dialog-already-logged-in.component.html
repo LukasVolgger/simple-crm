@@ -4,5 +4,8 @@
 </div>
 
 <div mat-dialog-content>
-    <button routerLink="/main" (click)="this.dialogRef.close()" color="primary" mat-raised-button>Continue to main page</button>
+    <button routerLink="/main/dashboard" (click)="this.dialogRef.close()" color="primary" mat-raised-button>
+        <mat-icon>login</mat-icon>
+        <span>Go to Dashboard</span>
+    </button>
 </div>

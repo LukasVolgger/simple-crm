@@ -9,7 +9,13 @@
     }
     i {
         color: var(--gray-col);
-        font-size: 32px;
+        font-size: 56px;
+    }
+}
+
+button {
+    mat-icon {
+        margin-right: 8px;
     }
 }
 
