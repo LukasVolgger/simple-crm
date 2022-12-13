@@ -6,19 +6,19 @@
         <mat-nav-list>
             <mat-list-item role="listitem">
                 <a routerLink="dashboard" title="Dashboard">
-                    <mat-icon color="primary">dashboard</mat-icon>
+                    <mat-icon class="nav-icon">dashboard</mat-icon>
                     <span>Dashboard</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
                 <a routerLink="customers" title="Customers">
-                    <mat-icon color="primary">person</mat-icon>
+                    <mat-icon class="nav-icon">person</mat-icon>
                     <span>Customers</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
                 <a (click)="this.authService.logOut()" title="Log Out">
-                    <mat-icon color="primary">logout</mat-icon>
+                    <mat-icon class="nav-icon">logout</mat-icon>
                     <span>Log Out</span>
                 </a>
             </mat-list-item>
