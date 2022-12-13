@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -27,12 +27,19 @@ export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.firestoreService.customers);
-    this.dataSource.paginator = this.paginator;
-    console.log('Customers from Service: ', this.firestoreService.customers);
-    console.log('Table Data Source: ', this.dataSource);
-    // FIXME The table is empty after refreshing the page
-    // TODO Update dataSource after adding, update and delete customers
+    this.updateTableData();
+  }
+
+  /**
+   * Subscribes the observable from the firestore and assigns each change to the variable dataSource
+   */
+  updateTableData() {
+    this.firestoreService.getAllCustomersSnapshot();
+
+    this.firestoreService.customersDataSource.subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
   /**

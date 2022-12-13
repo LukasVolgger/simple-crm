@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map, Observable } from 'rxjs';
 import { Customer } from '../models/customer.class';
 import { User } from '../models/user.class';
 
@@ -10,12 +11,13 @@ export class FirestoreService {
   customerToAdd: Customer = new Customer();
   customerToEdit: Customer = new Customer();
   dateOfBirth: Date = new Date; // Must be initialized
-  customers: any;
+  customers!: Array<any>;
+  customersDataSource!: Observable<any>;
   currentCustomer: Customer = new Customer();
   currentCustomerId: string = '';
 
   allUsers: any;
-  userData: any; // Gets the data from auth service as observable
+  userData: any; // Gets the data from auth service
   userDataObject: User = new User();
 
   loading: boolean = false;
@@ -40,7 +42,7 @@ export class FirestoreService {
         this.loading = false;
       });
 
-    this.customerToAdd = new Customer(); // Clear ngModel in template form
+    this.customerToAdd = new Customer();
   }
 
   /**
@@ -55,6 +57,21 @@ export class FirestoreService {
       .subscribe((changes: any) => {
         this.customers = changes;
       });
+  }
+
+  /**
+   * Assigns an observable with the snapshot of all customers to the variable customersDataSource
+   * Needed for the MatTableDataSource
+   * The field "id" is only created for opening a customer in the table
+   */
+  getAllCustomersSnapshot() {
+    this.customersDataSource = this.firestore.collection('customers').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Customer;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
   /**
