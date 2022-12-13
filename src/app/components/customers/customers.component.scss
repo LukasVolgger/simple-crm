@@ -1,5 +1,13 @@
+mat-form-field {
+    width: 100%;
+}
+
 table {
     width: 100%;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+}
+
+mat-paginator {
     box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
 }
 
@@ -10,16 +18,20 @@ table {
     }
 }
 
-.no-data-wrapper {
+.no-data-card {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-top: 16px;
+    padding: 32px 64px;
     i {
-        color: var(--error-col);
-        font-size: 32px;
+        color: var(--gray-col);
+        font-size: 56px;
     }
 }
 

@@ -17,6 +17,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class CustomersComponent implements OnInit {
   dataSource!: any;
   displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth'];
+  noData: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -30,6 +31,7 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateTableData();
+
   }
 
   /**
@@ -41,8 +43,21 @@ export class CustomersComponent implements OnInit {
     this.firestoreService.customersDataSource.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort
+      this.dataSource.sort = this.sort;
+
+      this.displayNoDataMessage();
     });
+  }
+
+  /**
+   * Shows the user a message when no data is available
+   */
+  displayNoDataMessage() {
+    if (this.dataSource['_data']['_value'].length < 1) {
+      this.noData = true;
+    } else {
+      this.noData = false;
+    }
   }
 
   /**
