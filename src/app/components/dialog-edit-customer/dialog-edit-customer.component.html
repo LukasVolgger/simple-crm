@@ -4,7 +4,7 @@
     <div mat-dialog-content>
         <form [formGroup]="editCustomerForm" (ngSubmit)="onSubmit()">
             <fieldset>
-                <legend>General</legend>
+                <legend>Person</legend>
                 <div class="form-row">
                     <mat-form-field appearance="fill">
                         <mat-label>First Name</mat-label>
@@ -31,30 +31,6 @@
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a date of birth
                         </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="form-row">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Phone number</mat-label>
-                        <input formControlName="phoneNumber" type="text" matInput required>
-                        <mat-icon matSuffix>call</mat-icon>
-                        <mat-error *ngIf="this.editCustomerForm.invalid">
-                            * Please enter a phone number
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Email</mat-label>
-                        <input formControlName="email" type="email" matInput required>
-                        <mat-icon matSuffix>mail</mat-icon>
-                        <mat-error *ngIf="this.editCustomerForm.invalid">
-                            * Please enter an email address
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Website</mat-label>
-                        <input formControlName="website" type="text" matInput>
-                        <mat-icon matSuffix>language</mat-icon>
-                        <mat-hint>* Optional</mat-hint>
                     </mat-form-field>
                 </div>
             </fieldset>
@@ -92,6 +68,33 @@
                         <mat-error *ngIf="this.editCustomerForm.invalid">
                             * Please enter a street and a country
                         </mat-error>
+                    </mat-form-field>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact</legend>
+                <div class="form-row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Phone number</mat-label>
+                        <input formControlName="phoneNumber" type="text" matInput required>
+                        <mat-icon matSuffix>call</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter a phone number
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" type="email" matInput required>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-error *ngIf="this.editCustomerForm.invalid">
+                            * Please enter an email address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Website</mat-label>
+                        <input formControlName="website" type="text" matInput>
+                        <mat-icon matSuffix>language</mat-icon>
+                        <mat-hint>* Optional</mat-hint>
                     </mat-form-field>
                 </div>
             </fieldset>
