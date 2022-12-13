@@ -15,6 +15,7 @@ import { DialogAlreadyLoggedInComponent } from '../components/dialog-already-log
 })
 export class AuthService {
   loginAsGuest: boolean = false;
+  authProcessing: boolean = false;
   userData: any; // Save logged in user data
   newDisplayName: string = '';
   authErrorIcon: string = 'info';
@@ -54,7 +55,7 @@ export class AuthService {
    */
   checkAlreadyLoggedIn() {
     this.afAuth.onAuthStateChanged((user) => {
-      if (user) {
+      if (user && !user.isAnonymous && !this.authProcessing) {
         setTimeout(() => {
           this.openAlreadyLoggedInDialog();
         }, 1000);
@@ -69,6 +70,8 @@ export class AuthService {
    * @returns 
    */
   signIn(email: string, password: string) {
+    this.authProcessing = true;
+
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -79,11 +82,13 @@ export class AuthService {
           if (user && user.emailVerified && this.router.url == '/login') {
             this.router.navigate(['main']).then(() => {
               window.location.reload();
+              this.authProcessing = false;
             });
           }
 
           if (user && user.emailVerified) {
             this.router.navigate(['main']);
+            this.authProcessing = false;
           } else {
             this.displayAuthErrorDialog('report', 'Attention', 'Please verify your email!', 'null', 'null');
           }
@@ -103,12 +108,15 @@ export class AuthService {
    * @returns
    */
   signUp(displayName: string, email: string, password: string) {
+    this.authProcessing = true;
+
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.changeDisplayName(displayName);
         this.sendVerificationMail(); // Call the SendVerificationMail() function when new user sign up and returns promise
         this.setUserData(result.user);
+        this.authProcessing = false;
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
@@ -172,11 +180,14 @@ export class AuthService {
    * @returns 
    */
   googleAuth() {
+    this.authProcessing = true;
+
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
 
       // Cannot be forwarded immediately after authentication
       setTimeout(() => {
         this.router.navigate(['main']);
+        this.authProcessing = false;
       }, 1000);
     });
   }
@@ -187,11 +198,14 @@ export class AuthService {
    * @returns 
    */
   authLogin(provider: any) {
+    this.authProcessing = true;
+
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
         this.router.navigate(['main']);
         this.setUserData(result.user);
+        this.authProcessing = false;
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
