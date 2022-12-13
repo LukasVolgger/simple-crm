@@ -46,6 +46,15 @@ export class CustomersComponent implements OnInit {
   }
 
   /**
+   * Filters the dataSource from the table
+   * @param event 
+   */
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  /**
    * Opens the add customer dialog
    */
   openAddCustomerDialog() {
