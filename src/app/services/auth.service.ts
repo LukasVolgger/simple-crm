@@ -58,6 +58,7 @@ export class AuthService {
       if (user && user.emailVerified && !user.isAnonymous && !this.authProcessing) {
         setTimeout(() => {
           this.openAlreadyLoggedInDialog();
+          this.firestoreService.updateUser(this.userData.uid);
         }, 1000);
       }
     });
@@ -80,7 +81,7 @@ export class AuthService {
 
           // If user has verified his email, but the page is not reloaded - the login does not work
           if (user && user.emailVerified && this.router.url == '/login') {
-            this.router.navigate(['main']).then(() => {
+            this.router.navigate(['main/dashboard']).then(() => {
               window.location.reload();
               this.authProcessing = false;
               this.firestoreService.updateUser(this.userData.uid);
@@ -188,7 +189,7 @@ export class AuthService {
 
       // Cannot be forwarded immediately after authentication
       setTimeout(() => {
-        this.router.navigate(['main']);
+        this.router.navigate(['main/dashboard']);
         this.authProcessing = false;
       }, 1000);
     });
@@ -205,7 +206,7 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['main']);
+        this.router.navigate(['main/dashboard']);
         this.setUserData(result.user);
         this.authProcessing = false;
       })
@@ -253,7 +254,7 @@ export class AuthService {
 
       this.afAuth.onAuthStateChanged(() => {
         setTimeout(() => {
-          this.router.navigate(['main']);
+          this.router.navigate(['main/dashboard']);
         }, 1000);
 
       });
