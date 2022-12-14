@@ -11,7 +11,6 @@ import { AuthService } from './auth.service';
 export class FirestoreService {
   customerToAdd: Customer = new Customer();
   customerToEdit: Customer = new Customer();
-  dateOfBirth: Date = new Date; // Must be initialized
   customers!: Array<any>;
   customersDataSource!: Observable<any>;
   currentCustomer: Customer = new Customer();
