@@ -1,14 +1,22 @@
 .content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 16px;
+    width: max-content;
 }
 
 .digital-clock {
+    position: absolute;
+    bottom: 0px;
     display: flex;
     gap: 2px;
+    background: #ffffff;
+    border: 5px solid white;
+    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 4px;
     strong {
         font-weight: 500;
     }
@@ -20,9 +28,8 @@
     align-items: center;
     width: max-content;
     height: max-content;
-    border-radius: 100%;
+    border-radius: 50%;
     background: #ffffff;
-    font-family: "Montserrat";
     border: 5px solid white;
     box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
 }

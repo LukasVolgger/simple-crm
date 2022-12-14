@@ -50,6 +50,7 @@ import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logg
 import { DialogForgotPasswordComponent } from './components/dialog-forgot-password/dialog-forgot-password.component';
 import { DialogUserDetailsComponent } from './components/dialog-user-details/dialog-user-details.component';
 import { ClockComponent } from './components/clock/clock.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ClockComponent } from './components/clock/clock.component';
     DialogAlreadyLoggedInComponent,
     DialogForgotPasswordComponent,
     DialogUserDetailsComponent,
-    ClockComponent
+    ClockComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
