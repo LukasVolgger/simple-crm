@@ -1,5 +1,8 @@
-<h2>Login as guest</h2>
-<p>Please enter a display name for your guest account.</p>
+<div class="mat-dialog-header">
+    <i class="material-icons">no_accounts</i>
+    <h1 mat-dialog-title>Login as guest</h1>
+</div>
+<p>Please enter a display name for your guest account.<br> Your guest account is only valid during this session!</p>
 <form [formGroup]="guestLoginForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
         <mat-label>Display Name</mat-label>
