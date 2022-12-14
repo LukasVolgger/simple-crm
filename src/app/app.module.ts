@@ -49,6 +49,7 @@ import { DialogGuestUserComponent } from './components/dialog-guest-user/dialog-
 import { DialogAlreadyLoggedInComponent } from './components/dialog-already-logged-in/dialog-already-logged-in.component';
 import { DialogForgotPasswordComponent } from './components/dialog-forgot-password/dialog-forgot-password.component';
 import { DialogUserDetailsComponent } from './components/dialog-user-details/dialog-user-details.component';
+import { ClockComponent } from './components/clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DialogUserDetailsComponent } from './components/dialog-user-details/dia
     DialogGuestUserComponent,
     DialogAlreadyLoggedInComponent,
     DialogForgotPasswordComponent,
-    DialogUserDetailsComponent
+    DialogUserDetailsComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
