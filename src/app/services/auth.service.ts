@@ -376,6 +376,4 @@ export class AuthService {
 
     this.openAuthErrorDialog();
   }
-
-  // TODO implement deleteOlderGuestUsers() method
 }
