@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
 import { Customer } from '../models/customer.class';
 import { User } from '../models/user.class';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,14 @@ export class FirestoreService {
   currentCustomerId: string = '';
 
   allUsers: any;
-  userData: any; // Gets the data from auth service
   userDataObject!: User;
 
   loading: boolean = false;
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(
+    private firestore: AngularFirestore,
+    private injector: Injector
+  ) {
     this.getAllCustomers();
   }
 
@@ -142,7 +145,9 @@ export class FirestoreService {
    * @param uid The document id from the 'users' collection
    */
   updateUser(uid: string) {
-    this.userDataObject = new User(this.userData); // Convert observable into object
+    const authService = this.injector.get(AuthService);
+    this.userDataObject = new User(authService.userData); // Convert observable into object
+
     this.firestore
       .collection('users')
       .doc(uid)

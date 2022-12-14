@@ -78,16 +78,18 @@ export class AuthService {
         this.setUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
 
-          // If user has verified his email, but the page is not reloaded, the login does not work
+          // If user has verified his email, but the page is not reloaded - the login does not work
           if (user && user.emailVerified && this.router.url == '/login') {
             this.router.navigate(['main']).then(() => {
               window.location.reload();
               this.authProcessing = false;
+              this.firestoreService.updateUser(this.userData.uid);
             });
           }
 
           if (user && user.emailVerified) {
-            this.router.navigate(['main']);
+            this.router.navigate(['main/dashboard']);
+            this.firestoreService.updateUser(this.userData.uid);
             this.authProcessing = false;
           } else {
             this.displayAuthErrorDialog('report', 'Attention', 'Please verify your email!', 'null', 'null');
@@ -283,7 +285,6 @@ export class AuthService {
       user!.updateProfile({
         displayName: newName
       }).then(() => {
-        this.firestoreService.userData = this.userData;
         this.firestoreService.updateUser(user!.uid);
       })
     });
@@ -298,7 +299,6 @@ export class AuthService {
       user!.updateProfile({
         photoURL: photoURL
       }).then(() => {
-        this.firestoreService.userData = this.userData;
         this.firestoreService.updateUser(user!.uid);
       });
     });
@@ -375,6 +375,5 @@ export class AuthService {
     this.openAuthErrorDialog();
   }
 
-  // FIXME emailVerified in firestore is always false
   // TODO implement deleteOlderGuestUsers() method
 }
