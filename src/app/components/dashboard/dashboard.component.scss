@@ -25,3 +25,27 @@
     justify-content: center;
     gap: 32px;
 }
+
+.customers-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    mat-card-actions {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+.customers-card-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    h2 {
+        margin: 0;
+    }
+    i {
+        font-size: 64px;
+        color: var(--gray-col);
+    }
+}

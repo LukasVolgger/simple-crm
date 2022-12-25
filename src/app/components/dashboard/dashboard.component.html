@@ -2,15 +2,22 @@
     <mat-card class="header-card" *ngIf="authService.userData as user">
         <img class="profile-picture" src="{{(user.photoURL) ? user.photoURL : './../../../assets/img/blank_profile_picture.svg'}}" alt="{{user.displayName}}">
         <h1>Welcome <strong>{{(user.displayName) ? user.displayName : 'User'}}!</strong></h1>
+
+        <div class="time-and-date">
+            <app-clock></app-clock>
+            <app-calendar></app-calendar>
+        </div>
     </mat-card>
 
-    <mat-card>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quam voluptate accusamus voluptas. Tempore inventore maxime corporis voluptates. Suscipit quos laboriosam tempora exercitationem ratione assumenda iste molestiae! Mollitia, neque in.
+    <mat-card class="customers-card">
+        <div class="customers-card-head">
+            <i class="material-icons">person</i>
+            <h2>Your Customers</h2>
+        </div>
+        <p>You have <span #customersAmount></span> customers.</p>
+        <mat-card-actions>
+            <button mat-raised-button color="basic">View all</button>
+        </mat-card-actions>
     </mat-card>
-
-    <div class="time-and-date">
-        <app-clock></app-clock>
-        <app-calendar></app-calendar>
-    </div>
 
 </div>
