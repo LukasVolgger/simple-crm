@@ -1,0 +1,60 @@
+.content {
+    padding: 32px;
+}
+
+.up-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background-color: var(--primary-col) !important;
+}
+
+h1,
+h2,
+h3,
+a,
+strong {
+    word-wrap: break-word;
+    text-align: center;
+    line-height: initial;
+}
+
+a {
+    text-decoration: none;
+    color: #1264a3;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+header {
+    background-color: #f5f5f5;
+    padding: 16px;
+    margin-bottom: 32px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
