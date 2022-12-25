@@ -1,0 +1,13 @@
+.mat-dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    h1 {
+        margin: 0;
+    }
+    i {
+        color: var(--gray-col);
+        font-size: 32px;
+    }
+}

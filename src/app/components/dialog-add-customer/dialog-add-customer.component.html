@@ -1,6 +1,8 @@
 <div class="dialog-wrapper">
-    <mat-progress-bar *ngIf="this.firestoreService.loading" mode="indeterminate"></mat-progress-bar>
-    <h1 mat-dialog-title>Add Customer</h1>
+    <div class="mat-dialog-header">
+        <i class="material-icons">person_add</i>
+        <h1 mat-dialog-title>Add Customer</h1>
+    </div>
     <div mat-dialog-content>
         <form [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()">
             <fieldset>
