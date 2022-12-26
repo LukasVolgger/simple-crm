@@ -18,6 +18,12 @@
     gap: 64px;
     width: 60%;
     height: 100%;
+    h2 {
+        background-color: white;
+        border-radius: 8px 8px;
+        padding: 0px 16px;
+        line-height: 64px;
+    }
 }
 
 .sign-up-wrapper {
@@ -66,3 +72,103 @@ form {
 button {
     width: max-content;
 }
+
+@media (max-width: 360px) {
+    .content {
+        flex-direction: column;
+    }
+    .left-section {
+        width: 100%;
+        height: 25%;
+        background-size: auto;
+    }
+    .right-section {
+        width: 100%;
+        height: 75%;
+        gap: 32px;
+        margin-top: -64px;
+    }
+    .sign-up-wrapper {
+        gap: 16px;
+    }
+    .login-wrapper {
+        margin-top: -14px;
+    }
+    .legal-notice-wrapper {
+        transform: translate(-50%, -50%);
+        right: unset;
+        bottom: 8px;
+        left: 50%;
+    }
+}
+
+@media (min-width: 360px) {
+    .content {
+        flex-direction: column;
+    }
+    .left-section {
+        width: 100%;
+        height: 25%;
+        background-size: auto;
+    }
+    .right-section {
+        width: 100%;
+        height: 75%;
+        gap: 32px;
+        margin-top: -64px;
+    }
+    .sign-up-wrapper {
+        gap: 16px;
+    }
+    .login-wrapper {
+        margin-top: -14px;
+    }
+    .legal-notice-wrapper {
+        transform: translate(-50%, -50%);
+        right: unset;
+        bottom: 8px;
+        left: 50%;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .content {
+        flex-direction: row;
+    }
+    .left-section {
+        width: 40%;
+        height: 100%;
+        background-size: cover;
+    }
+    .right-section {
+        width: 60%;
+        height: 100%;
+        gap: 64px;
+        margin-top: 0px;
+    }
+    .sign-up-wrapper {
+        gap: 32px;
+    }
+    .login-wrapper {
+        margin-top: -20px;
+    }
+    .legal-notice-wrapper {
+        transform: translate(-0%, -0%);
+        right: 16px;
+        bottom: 16px;
+        left: unset;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
