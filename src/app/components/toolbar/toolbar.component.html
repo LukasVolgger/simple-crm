@@ -5,19 +5,19 @@
         </div>
         <mat-nav-list>
             <mat-list-item role="listitem">
-                <a routerLink="dashboard" title="Dashboard">
+                <a (click)="this.toggleNav()" routerLink="dashboard" title="Dashboard">
                     <mat-icon class="nav-icon">dashboard</mat-icon>
                     <span>Dashboard</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
-                <a routerLink="customers" title="Customers">
+                <a (click)="this.toggleNav()" routerLink="customers" title="Customers">
                     <mat-icon class="nav-icon">person</mat-icon>
                     <span>Customers</span>
                 </a>
             </mat-list-item>
             <mat-list-item role="listitem">
-                <a (click)="this.authService.logOut()" title="Log Out">
+                <a (click)="this.authService.logOut(); this.toggleNav()" title="Log Out">
                     <mat-icon class="nav-icon">logout</mat-icon>
                     <span>Log Out</span>
                 </a>
