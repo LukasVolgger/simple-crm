@@ -18,6 +18,12 @@
     gap: 64px;
     width: 60%;
     height: 100%;
+    h2 {
+        background-color: white;
+        border-radius: 8px 8px;
+        padding: 4px 16px;
+        line-height: 64px;
+    }
 }
 
 .login-wrapper {
@@ -96,12 +102,6 @@ form {
         height: 75%;
         gap: 32px;
         margin-top: -64px;
-        h2 {
-            background-color: white;
-            border-radius: 8px 8px;
-            padding: 4px 16px;
-            line-height: 64px;
-        }
     }
     .login-wrapper {
         gap: 16px;
@@ -136,12 +136,6 @@ form {
         height: 75%;
         gap: 32px;
         margin-top: -64px;
-        h2 {
-            background-color: white;
-            border-radius: 8px 8px;
-            padding: 4px 16px;
-            line-height: 64px;
-        }
     }
     .login-wrapper {
         gap: 16px;
