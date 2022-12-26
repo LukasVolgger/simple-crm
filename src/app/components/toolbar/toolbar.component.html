@@ -33,7 +33,7 @@
                 <button type="button" mat-button (click)="drawer.toggle()" title="Toggle Menu">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <span>Simple CRM</span>
+                <span class="hide-mobile">Simple CRM</span>
             </div>
             <div class="toolbar-right" *ngIf="authService.userData as user">
                 <span>{{ user.displayName }}</span>

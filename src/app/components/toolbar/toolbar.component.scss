@@ -81,3 +81,31 @@ mat-toolbar {
     bottom: 16px;
     left: 50%;
 }
+
+@media (max-width: 360px) {
+    .hide-mobile {
+        display: none;
+    }
+    .toolbar-right {
+        gap: 0px;
+    }
+}
+
+@media (min-width: 360px) {
+    .hide-mobile {
+        display: none;
+    }
+    .toolbar-right {
+        gap: 0px;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .hide-mobile {
+        display: unset;
+    }
+    .toolbar-right {
+        gap: 16px;
+    }
+}
