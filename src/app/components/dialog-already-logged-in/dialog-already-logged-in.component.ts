@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-dialog-already-logged-in',
@@ -8,7 +10,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAlreadyLoggedInComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogAlreadyLoggedInComponent>) { }
+  constructor(
+    public dialogRef: MatDialogRef<DialogAlreadyLoggedInComponent>,
+    public authService: AuthService,
+    public firestoreService: FirestoreService
+  ) { }
 
   ngOnInit(): void {
   }

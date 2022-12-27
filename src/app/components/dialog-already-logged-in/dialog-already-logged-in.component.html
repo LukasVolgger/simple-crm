@@ -4,7 +4,7 @@
 </div>
 
 <div mat-dialog-content>
-    <button routerLink="/main/dashboard" (click)="this.dialogRef.close()" color="primary" mat-raised-button>
+    <button routerLink="/main/dashboard" (click)="this.dialogRef.close(); this.firestoreService.updateUser(this.authService.userData.uid)" color="primary" mat-raised-button>
         <mat-icon>login</mat-icon>
         <span>Go to Dashboard</span>
     </button>

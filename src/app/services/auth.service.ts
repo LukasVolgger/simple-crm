@@ -58,8 +58,6 @@ export class AuthService {
       if (user && user.emailVerified && !user.isAnonymous && !this.authProcessing) {
         setTimeout(() => {
           this.openAlreadyLoggedInDialog();
-          // this.firestoreService.updateUser(this.userData.uid);
-          // FIXME Implement update after login from dialog
         }, 1000);
       }
     });
