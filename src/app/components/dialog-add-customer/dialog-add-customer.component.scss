@@ -22,6 +22,7 @@ fieldset {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    overflow: hidden;
 }
 
 legend {
@@ -51,3 +52,87 @@ mat-datepicker-toggle {
     gap: 16px;
     width: 100%;
 }
+
+@media (max-width: 360px) {
+    .form-row {
+        justify-content: center;
+    }
+    fieldset {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding: 0;
+        min-inline-size: 0;
+        border-width: 0;
+    }
+    legend {
+        border-bottom: 1px solid var(--primary-col);
+        margin-bottom: 16px;
+        width: 100%;
+        text-align: center;
+    }
+    .mat-form-field {
+        flex: 1;
+    }
+}
+
+@media (min-width: 360px) {
+    .form-row {
+        justify-content: center;
+    }
+    .mat-form-field {
+        flex: 1;
+        max-width: 95%;
+    }
+    fieldset {
+        margin-inline-start: 2px;
+        margin-inline-end: 2px;
+        padding: 8px 4px;
+        min-inline-size: 0;
+        min-inline-size: min-content;
+    }
+    legend {
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        width: unset;
+        text-align: unset;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    fieldset {
+        padding-block-start: 0.35em;
+        padding-inline-start: 0.75em;
+        padding-inline-end: 0.75em;
+        padding-block-end: 0.625em;
+        min-inline-size: min-content;
+    }
+}
+
+@media (min-width: 677px) {
+    .dob-form-field {
+        flex: initial;
+    }
+    .website-form-field {
+        flex: initial;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+@media (min-width: 977px) {
+    .country-form-field {
+        flex: initial;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
