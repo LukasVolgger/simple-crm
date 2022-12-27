@@ -81,7 +81,7 @@ export class AuthService {
           // If user has verified his email, but the page is not reloaded - the login does not work
           if (user && user.emailVerified && this.router.url == '/login') {
             this.router.navigate(['main/dashboard']).then(() => {
-              window.location.reload();
+              // window.location.reload();
               this.authProcessing = false;
               this.firestoreService.updateUser(this.userData.uid);
             });
