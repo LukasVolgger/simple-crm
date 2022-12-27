@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Customer } from '../models/customer.class';
 import { User } from '../models/user.class';
 import { AuthService } from './auth.service';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,10 @@ export class FirestoreService {
   allUsers: any;
   userDataObject!: User;
 
-  loading: boolean = false;
-
   constructor(
     private firestore: AngularFirestore,
-    private injector: Injector
+    private injector: Injector,
+    private utils: UtilsService
   ) {
     this.getAllCustomers();
     this.deleteOldGuestUsers(86400000); // Delete old guest users from firestore after 1 day
@@ -35,13 +35,13 @@ export class FirestoreService {
    * 2. Converts the customer object into JSON
    */
   addCustomer() {
-    this.loading = true;
+    this.utils.loading = true;
 
     this.firestore
       .collection('customers')
       .add(this.customerToAdd.customerToJSON())
       .then(() => {
-        this.loading = false;
+        this.utils.loading = false;
       });
 
     this.customerToAdd = new Customer();
@@ -82,14 +82,14 @@ export class FirestoreService {
    * @param customerId The unique document id from firestore
    */
   updateCustomer(customerId: string) {
-    this.loading = true;
+    this.utils.loading = true;
 
     this.firestore
       .collection('customers')
       .doc(customerId)
       .update(this.customerToEdit.customerToJSON())
       .then(() => {
-        this.loading = false;
+        this.utils.loading = false;
       });
   }
 
@@ -99,14 +99,14 @@ export class FirestoreService {
    * @param customerId The unique document id from firestore
    */
   deleteCustomer(customerId: string) {
-    this.loading = true;
+    this.utils.loading = true;
 
     this.firestore
       .collection('customers')
       .doc(customerId)
       .delete()
       .then(() => {
-        this.loading = false;
+        this.utils.loading = false;
       });
   }
 
@@ -144,13 +144,18 @@ export class FirestoreService {
    * @param uid The document id from the 'users' collection
    */
   updateUser(uid: string) {
+    this.utils.loading = true;
+
     const authService = this.injector.get(AuthService);
     this.userDataObject = new User(authService.userData); // Convert observable into object
 
     this.firestore
       .collection('users')
       .doc(uid)
-      .update(this.userDataObject.userToJSON());
+      .update(this.userDataObject.userToJSON())
+      .then(() => {
+        this.utils.loading = false;
+      });
   }
 
   /**
@@ -158,9 +163,14 @@ export class FirestoreService {
    * @param uid The document id from the 'users' collection
    */
   deleteUser(uid: string) {
+    this.utils.loading = true;
+
     this.firestore.collection('users')
       .doc(uid)
-      .delete();
+      .delete()
+      .then(() => {
+        this.utils.loading = false;
+      });
   }
 
   /**

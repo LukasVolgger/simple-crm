@@ -1,2 +1,2 @@
-<router-outlet></router-outlet>
-<app-loading-screen></app-loading-screen>
+<router-outlet *ngIf="!this.utils.loading && !this.authService.authProcessing"></router-outlet>
+<app-loading-screen *ngIf="this.utils.loading || this.authService.authProcessing"></app-loading-screen>

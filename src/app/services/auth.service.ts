@@ -58,7 +58,8 @@ export class AuthService {
       if (user && user.emailVerified && !user.isAnonymous && !this.authProcessing) {
         setTimeout(() => {
           this.openAlreadyLoggedInDialog();
-          this.firestoreService.updateUser(this.userData.uid);
+          // this.firestoreService.updateUser(this.userData.uid);
+          // FIXME Implement update after login from dialog
         }, 1000);
       }
     });
@@ -247,9 +248,12 @@ export class AuthService {
    * @param guestDisplayName The name of the guest user
    */
   guestLogin(guestDisplayName: string) {
+    this.authProcessing = true;
     this.loginAsGuest = true;
 
     this.afAuth.signInAnonymously().then((result) => {
+      this.authProcessing = false;
+
       this.setUserData(result.user);
       this.changeDisplayName(guestDisplayName);
 
@@ -270,9 +274,12 @@ export class AuthService {
    * @returns
    */
   logOut() {
+    this.authProcessing = true;
+
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']).then(() => {
+        this.authProcessing = false;
         window.location.reload();
       });
     });
@@ -283,10 +290,13 @@ export class AuthService {
    * @param newName String with the new name
    */
   changeDisplayName(newName: string) {
+    this.authProcessing = true;
+
     this.afAuth.currentUser.then((user) => {
       user!.updateProfile({
         displayName: newName
       }).then(() => {
+        this.authProcessing = false;
         this.firestoreService.updateUser(user!.uid);
       })
     });
@@ -297,10 +307,13 @@ export class AuthService {
    * @param photoURL The URL of the new img
    */
   changeProfilePicture(photoURL: string) {
+    this.authProcessing = true;
+
     this.afAuth.currentUser.then((user) => {
       user!.updateProfile({
         photoURL: photoURL
       }).then(() => {
+        this.authProcessing = false;
         this.firestoreService.updateUser(user!.uid);
       });
     });
@@ -310,11 +323,14 @@ export class AuthService {
    * Deletes the currently logged in user
    */
   deleteUser() {
+    this.authProcessing = true;
     this.deleteProfilePicture();
 
     this.afAuth.currentUser.then((user) => {
       this.firestoreService.deleteUser(user!.uid); // Delete the user from firestore
       user!.delete().then(() => {
+        this.authProcessing = false;
+
         this.router.navigate(['']).then(() => {
           window.location.reload();
         });

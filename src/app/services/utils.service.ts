@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UtilsService {
+  loading: boolean = false;
 
   constructor(private router: Router) { }
 
