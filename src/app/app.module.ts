@@ -52,6 +52,7 @@ import { DialogUserDetailsComponent } from './components/dialog-user-details/dia
 import { ClockComponent } from './components/clock/clock.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { LegalNoticeComponent } from './components/legal-notice/legal-notice.com
     DialogUserDetailsComponent,
     ClockComponent,
     CalendarComponent,
-    LegalNoticeComponent
+    LegalNoticeComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
