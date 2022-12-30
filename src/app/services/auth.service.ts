@@ -93,12 +93,14 @@ export class AuthService {
             this.authProcessing = false;
           } else {
             this.displayAuthErrorDialog('report', 'Attention', 'Please verify your email!', 'null', 'null');
+            this.authProcessing = false;
           }
 
         });
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
   }
 
@@ -122,6 +124,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
   }
 
@@ -134,6 +137,9 @@ export class AuthService {
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
         this.router.navigate(['verify-email-address']);
+      }).catch((error) => {
+        this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
   }
 
@@ -143,13 +149,17 @@ export class AuthService {
    * @returns 
    */
   forgotPassword(passwordResetEmail: string) {
+    this.authProcessing = true;
+
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         this.displayAuthErrorDialog('info', 'Info', 'Password reset email sent, check your inbox.', 'null', 'null');
+        this.authProcessing = false;
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
   }
 
@@ -184,13 +194,16 @@ export class AuthService {
   googleAuth() {
     this.authProcessing = true;
 
-    return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
+    return this.authLogin(new auth.GoogleAuthProvider()).then(() => {
 
       // Cannot be forwarded immediately after authentication
       setTimeout(() => {
         this.router.navigate(['main/dashboard']);
         this.authProcessing = false;
       }, 1000);
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
@@ -211,6 +224,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
   }
 
@@ -264,6 +278,7 @@ export class AuthService {
 
     }).catch((error) => {
       this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
@@ -279,7 +294,13 @@ export class AuthService {
       this.router.navigate(['login']).then(() => {
         this.authProcessing = false;
         window.location.reload();
+      }).catch((error) => {
+        this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
@@ -296,7 +317,13 @@ export class AuthService {
       }).then(() => {
         this.authProcessing = false;
         this.firestoreService.updateUser(user!.uid);
-      })
+      }).catch((error) => {
+        this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
+      });
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
@@ -313,7 +340,13 @@ export class AuthService {
       }).then(() => {
         this.authProcessing = false;
         this.firestoreService.updateUser(user!.uid);
+      }).catch((error) => {
+        this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
@@ -332,7 +365,13 @@ export class AuthService {
         this.router.navigate(['']).then(() => {
           window.location.reload();
         });
+      }).catch((error) => {
+        this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+        this.authProcessing = false;
       });
+    }).catch((error) => {
+      this.displayAuthErrorDialog('report', 'Attention', 'An error has occurred.', error.message, error.code);
+      this.authProcessing = false;
     });
   }
 
