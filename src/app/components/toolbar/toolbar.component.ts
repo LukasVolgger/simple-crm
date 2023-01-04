@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDrawer } from '@angular/material/sidenav';
 import { AuthService } from 'src/app/services/auth.service';
@@ -23,11 +23,13 @@ export class ToolbarComponent implements OnInit, AfterViewInit {
 
   constructor(
     public authService: AuthService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngAfterViewInit(): void {
     this.applyResponsiveNav();
+    this.cd.detectChanges();
   }
 
   ngOnInit(): void {
